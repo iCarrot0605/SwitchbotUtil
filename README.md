@@ -16,8 +16,8 @@ tokenとsecretの入手
 
 ```python
 {
-    "token": ""     #Your token
-    "secret": ""    #your secret
+    "token": "",
+    "secret": ""
 }
 ```
 
