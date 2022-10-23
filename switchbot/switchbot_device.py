@@ -1,4 +1,4 @@
-from switchbot import Switchbot
+from switchbot.switchbot import Switchbot
 import requests
 import json
 
