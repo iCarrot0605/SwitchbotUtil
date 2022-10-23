@@ -1,4 +1,4 @@
-from SwitchbotDevice import SwitchbotDevice
+from switchbot.switchbot_device import SwitchbotDevice
 from datetime import datetime as dt
 
 class SwitchbotKeypad(SwitchbotDevice):

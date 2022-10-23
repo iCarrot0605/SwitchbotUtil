@@ -21,7 +21,7 @@ tokenとsecretの入手
 }
 ```
 
-`python3 Switchbot.py`で同じディレクトリ内にdeviceList.txtというSwitchbotデバイス一覧ファイルが作成されます。
+`python3 get_devicelist.py`で同じディレクトリ内にdeviceList.txtというSwitchbotデバイス一覧ファイルが作成されます。
 
 deviceList.txt内のdeviceIDを使って各種デバイスを操作します。
 
@@ -30,7 +30,7 @@ deviceList.txt内のdeviceIDを使って各種デバイスを操作します。
 Switchbot Botの電源ON/OFFを確認する
 
 ```python
-from SwitchbotBot import SwitchbotBot
+from switchbot.witchbot_bot import SwitchbotBot
 bot = SwitchbotBot('BotdeviceId')
 print(bot.get_power())
 ```
@@ -38,7 +38,7 @@ print(bot.get_power())
 Switchbot Lockを解除する
 
 ```python
-from SwitchbotLock import SwitchbotLock
+from switchbot.SwitchbotLock import SwitchbotLock
 lock = SwitchbotLock('LockDeviceId')
 lock.unlock()
 ```

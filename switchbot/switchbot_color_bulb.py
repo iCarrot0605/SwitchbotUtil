@@ -1,4 +1,4 @@
-from SwitchbotStripLight import SwitchbotStripLight
+from switchbot.switchbot_strip_light import SwitchbotStripLight
 
 class SwitchbotColorBulb(SwitchbotStripLight):
     """Constructor"""

@@ -1,4 +1,4 @@
-from SwitchbotDevice import SwitchbotDevice
+from switchbot.switchbot_device import SwitchbotDevice
 
 class SwitchbotPlug(SwitchbotDevice):
     """Switchbot Plug class"""

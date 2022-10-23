@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-"""Switchbot Tool"""
-
 import json
 import requests
 import time
@@ -10,7 +7,7 @@ import base64
 import uuid
 
 class Switchbot:
-    """Utility class"""
+    """Switchbot Utility class"""
     def __init__(self):
         """Constructor"""
         pass
@@ -63,10 +60,3 @@ class Switchbot:
                 f.write(device['deviceName'] + ', ')
                 f.write(device['deviceType'] + ', ')
                 f.write(device['hubDeviceId'] + '\n')
-
-def main():
-    sb = Switchbot()
-    sb.devicelist()
-
-if __name__ == '__main__':
-    main()

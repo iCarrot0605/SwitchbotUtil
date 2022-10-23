@@ -1,4 +1,4 @@
-from SwitchbotPlug import SwitchbotPlug
+from switchbot.switchbot_plug import SwitchbotPlug
 
 class SwitchbotPlugMiniUS(SwitchbotPlug):
     """Switchbot Plug Mini(US) class"""

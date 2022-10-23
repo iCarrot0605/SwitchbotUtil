@@ -1,5 +1,4 @@
-import imp
-from SwitchbotCeilingLight import SwitchbotCeilingLight
+from switchbot.switchbot_ceiling_light import SwitchbotCeilingLight
 
 class SwithbotCeilingLightPro(SwitchbotCeilingLight):
     """Switchbot Ceiling Light class"""

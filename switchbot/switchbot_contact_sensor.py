@@ -1,4 +1,4 @@
-from SwitchbotMotionSensor import SwitchbotMotionSensor
+from switchbot.switchbot_motion_sensor import SwitchbotMotionSensor
 
 class SwitchbotContactSensor(SwitchbotMotionSensor):
     """Switchbot Contact Sensor class"""

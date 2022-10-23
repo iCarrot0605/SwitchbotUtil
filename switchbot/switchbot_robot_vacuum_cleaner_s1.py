@@ -1,4 +1,4 @@
-from SwitchbotDevice import SwitchbotDevice
+from switchbot.switchbot_device import SwitchbotDevice
 
 class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice):
     """Switchbot Robot Vacuum Cleaner S1 class"""
