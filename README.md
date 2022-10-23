@@ -30,7 +30,7 @@ deviceList.txt内のdeviceIDを使って各種デバイスを操作します。
 Switchbot Botの電源ON/OFFを確認する
 
 ```python
-from switchbot.witchbot_bot import SwitchbotBot
+from switchbot.switchbot_bot import SwitchbotBot
 bot = SwitchbotBot('BotdeviceId')
 print(bot.get_power())
 ```
@@ -38,7 +38,7 @@ print(bot.get_power())
 Switchbot Lockを解除する
 
 ```python
-from switchbot.SwitchbotLock import SwitchbotLock
+from switchbot.switchbot_lock import SwitchbotLock
 lock = SwitchbotLock('LockDeviceId')
 lock.unlock()
 ```
