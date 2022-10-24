@@ -60,3 +60,9 @@ class Switchbot:
                 f.write(device['deviceName'] + ', ')
                 f.write(device['deviceType'] + ', ')
                 f.write(device['hubDeviceId'] + '\n')
+        
+            for device in devices['body']['infraredRemoteList']:
+                f.write(device['deviceId'] + ', ')
+                f.write(device['deviceName'] + ', ')
+                f.write(device['remoteType'] + ', ')
+                f.write(device['hubDeviceId'] + '\n')
