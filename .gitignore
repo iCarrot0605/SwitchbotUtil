@@ -131,3 +131,4 @@ dmypy.json
 # Personal file
 settings.json
 deviceList.txt
+keypad_*_keyList.txt

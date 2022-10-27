@@ -1,3 +1,4 @@
+from fileinput import filename
 from switchbot.switchbot_device import SwitchbotDevice
 from datetime import datetime as dt
 
@@ -48,3 +49,18 @@ class SwitchbotKeypad(SwitchbotDevice):
         result = self.command(self.deviceId, body)
         return result.text
 
+    def key_list(self):
+        """Get keypad key list to file"""
+        import json, requests
+        header = self.gen_sign()
+        response = requests.get("https://api.switch-bot.com/v1.1/devices", headers=header)
+        devices  = json.loads(response.text)
+
+        key_list  = [device["keyList"] for device in devices['body']['deviceList'] if device["deviceId"] == self.deviceId]
+        filename = f'keypad_{self.deviceId}_keyList.txt'
+        with open(filename, 'w', encoding='utf-8', newline='\n') as f:
+            for key in key_list[0]:
+                f.write(str(key['id']) + ', ')
+                f.write(key['name'] + ', ')
+                f.write(key['type'] + ', ')
+                f.write(key['status'] + '\n')
