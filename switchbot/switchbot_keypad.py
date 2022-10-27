@@ -35,3 +35,16 @@ class SwitchbotKeypad(SwitchbotDevice):
 
         result = self.command(self.deviceId, body)
         return result.text
+
+    def delete_key(self, keyId):
+        body = {
+            "commandType": "command",
+            "command": "deleteKey"
+        }
+        parameter = {}
+        parameter['id'] = keyId
+        body['parameter'] = parameter
+
+        result = self.command(self.deviceId, body)
+        return result.text
+
