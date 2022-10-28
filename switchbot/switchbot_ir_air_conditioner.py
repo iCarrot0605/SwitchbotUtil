@@ -12,7 +12,6 @@ class IrAirConditioner(SwitchbotIrDevice):
             "command": "setAll"
         }
         parameter =f'{temperature}, {mode}, {fan_speed}, {power_state}'
-        print(parameter)
         body['parameter'] = parameter
 
         result = self.command(self.deviceId, body)
