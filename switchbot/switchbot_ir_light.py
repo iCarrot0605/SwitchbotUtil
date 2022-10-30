@@ -1,7 +1,7 @@
 from switchbot.switchbot_ir_device import SwitchbotIrDevice
 
 class IrLight(SwitchbotIrDevice):
-    """Switchbot virtual IR fan"""
+    """Switchbot virtual IR Light"""
     body = {
     "commandType": "command",
     "parameter": "default"
