@@ -1,3 +1,4 @@
+from email import header
 import json
 import requests
 import time
@@ -66,3 +67,21 @@ class Switchbot:
                 f.write(device['deviceName'] + ', ')
                 f.write(device['remoteType'] + ', ')
                 f.write(device['hubDeviceId'] + '\n')
+
+    def get_scene_list(self):
+        """Get scene List as sceneList.txt"""
+        header = self.gen_sign()
+        response = requests.get("https://api.switch-bot.com/v1.1/scenes", headers=header)
+        scenes  = json.loads(response.text)
+
+        with open('sceneList.txt', 'w', encoding='utf-8', newline='\n') as f:
+            for scene in scenes['body']:
+                f.write(scene['sceneId'] + ', ')
+                f.write(scene['sceneName'] + '\n')
+
+    def scene_execute(self, sceneId):
+        """Execute scene"""
+        header = self.gen_sign()
+        url = "https://api.switch-bot.com/v1.1/scenes/" + sceneId + "/execute"
+        response = requests.post(url=url, headers=header)
+        return response.text
