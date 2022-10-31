@@ -3,6 +3,9 @@ import json
 from switchbot.switchbot import Switchbot
 
 class SwitchbotWebhook(Switchbot):
+    baseurl = 'https://api.switch-bot.com/v1.1/webhook/'
+	
+	
     def __init__(self):
         super().__init__()
 
@@ -16,7 +19,7 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "setupWebhook",
                 "deviceList": "ALL"}
         body['url'] = url
-        posturl = 'https://api.switch-bot.com/v1.1/webhook/setupWebhook'
+        posturl = self.baseurl + 'setupWebhook'
         response = requests.post(posturl, headers=header, data=json.dumps(body))
         return response.text
 
@@ -24,7 +27,7 @@ class SwitchbotWebhook(Switchbot):
         """Get webhook configuration"""
         header = self.gen_sign()
         body = {"action": "queryUrl"}
-        posturl = 'https://api.switch-bot.com/v1.1/webhook/queryWebhook'
+        posturl = self.baseurl + 'queryWebhook'
         response = requests.post(posturl, headers=header, data=json.dumps(body))
         return response.text
     
@@ -33,7 +36,7 @@ class SwitchbotWebhook(Switchbot):
         header = self.gen_sign()
         body = {"action": "queryDetails"}
         body['urls'] = url
-        posturl = 'https://api.switch-bot.com/v1.1/webhook/queryWebhook'
+        posturl = self.baseurl + 'queryWebhook'
         response = requests.post(posturl, headers=header, data=json.dumps(body))
         return response.text
 
@@ -42,7 +45,7 @@ class SwitchbotWebhook(Switchbot):
         header = self.gen_sign()
         body = {"action": "updateWebhook"}
         body['urls'] = url
-        posturl = 'https://api.switch-bot.com/v1.1/webhook/queryWebhook'
+        posturl = self.baseurl + 'queryWebhook'
         response = requests.post(posturl, headers=header, data=json.dumps(body))
         return response.text
     
@@ -51,6 +54,6 @@ class SwitchbotWebhook(Switchbot):
         header = self.gen_sign()
         body = {"action": "deleteWebhook"}
         body['url'] = url
-        posturl = 'https://api.switch-bot.com/v1.1/webhook/deleteWebhook'
+        posturl = self.baseurl + 'deleteWebhook'
         response = requests.post(posturl, headers=header, data=json.dumps(body))
         return response.text
