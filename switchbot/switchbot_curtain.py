@@ -1,4 +1,4 @@
-from switchbot.switchbot_device import SwitchbotDevice
+from .switchbot_device import SwitchbotDevice
 
 class SwitchbotCurtain(SwitchbotDevice):
     """Switchbot Curtain class"""

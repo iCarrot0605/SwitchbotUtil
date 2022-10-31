@@ -1,4 +1,4 @@
-from switchbot.switchbot_ir_device import SwitchbotIrDevice
+from .switchbot_ir_device import SwitchbotIrDevice
 
 class IrAirConditioner(SwitchbotIrDevice):
     """Switchbot virtual ir Air Conditioner"""

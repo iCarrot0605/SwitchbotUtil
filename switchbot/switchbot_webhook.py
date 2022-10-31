@@ -1,6 +1,6 @@
 import requests
 import json
-from switchbot.switchbot import Switchbot
+from .switchbot import Switchbot
 
 class SwitchbotWebhook(Switchbot):
     baseurl = 'https://api.switch-bot.com/v1.1/webhook/'

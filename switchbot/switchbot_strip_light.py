@@ -1,4 +1,4 @@
-from switchbot.switchbot_plug_mini_us import SwitchbotPlugMiniUS
+from .switchbot_plug_mini_us import SwitchbotPlugMiniUS
 
 class SwitchbotStripLight(SwitchbotPlugMiniUS):
     def __init__(self, deviceId):

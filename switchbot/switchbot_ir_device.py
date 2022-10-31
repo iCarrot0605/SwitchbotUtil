@@ -1,4 +1,4 @@
-from switchbot.switchbot_device import SwitchbotDevice
+from .switchbot_device import SwitchbotDevice
 
 class SwitchbotIrDevice(SwitchbotDevice):
     """Switchbot virtual ir device"""
