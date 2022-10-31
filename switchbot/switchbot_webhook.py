@@ -13,9 +13,6 @@ class SwitchbotWebhook(Switchbot):
     def setup_webhook(self, url):
         """Setup Webhook"""
         header = self.gen_sign()
-        # token, secret = self.read_token()
-        # header = {"Content-type": "application/json"}
-        # header['Authorization'] = token
         body = {"action": "setupWebhook",
                 "deviceList": "ALL"}
         body['url'] = url
