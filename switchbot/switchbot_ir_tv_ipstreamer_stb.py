@@ -39,12 +39,14 @@ class IrTv(SwitchbotIrDevice):
         result = self.command(self.deviceId, self._body)
         return result.text
 
+
 class IrIpTvStreamer(IrTv):
     """IPTV/Streamer class"""
     def __init__(self, deviceId):
-         super().__init__(deviceId)
+        super().__init__(deviceId)
+
 
 class IrSetTopBox(IrTv):
     """Set Top Box class"""
     def __init__(self, deviceId):
-         super().__init__(deviceId)
+        super().__init__(deviceId)

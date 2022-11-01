@@ -56,10 +56,11 @@ class IrDvd(SwitchbotIrDevice):
         result = self.command(self.deviceId, self._body)
         return result.text
 
+
 class IrSpeaker(IrDvd):
     """IPTV/Streamer class"""
     def __init__(self, deviceId):
-         super().__init__(deviceId)
+        super().__init__(deviceId)
 
     def volume_add(self):
         """Volume up"""

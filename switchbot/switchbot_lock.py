@@ -1,5 +1,6 @@
 from .switchbot_device import SwitchbotDevice
 
+
 class SwitchbotLock(SwitchbotDevice):
     """Switchbot Lock class"""
     def __init__(self, deviceId):

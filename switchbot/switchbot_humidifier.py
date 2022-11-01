@@ -7,7 +7,7 @@ class SwitchbotHumidifier(SwitchbotDevice):
         """Constructor"""
         super().__init__(deviceId)
 
-    def set_mode(self,mode):
+    def set_mode(self, mode):
         """Set device mode"""
         self._body['command'] = "setMode"
         self._body['parameter'] = mode

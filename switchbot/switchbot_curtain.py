@@ -12,7 +12,7 @@ class SwitchbotCurtain(SwitchbotDevice):
 
         arg: position curtain position 0-100%"""
 
-        self._body['command'] =  "setPosition"
+        self._body['command'] = "setPosition"
         self._body["parameter"] = '0,ff,{}'.format(position)
         result = self.command(self.deviceId, self._body)
         return result.text

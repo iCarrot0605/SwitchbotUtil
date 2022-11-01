@@ -1,5 +1,6 @@
 from .switchbot_strip_light import SwitchbotStripLight
 
+
 class SwitchbotColorBulb(SwitchbotStripLight):
     """Constructor"""
     def __init__(self, deviceId):

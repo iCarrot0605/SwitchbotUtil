@@ -19,7 +19,7 @@ class SwitchbotStripLight(SwitchbotDevice):
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def set_color(self, r, g ,b):
+    def set_color(self, r, g, b):
         """Set color
 
         args: r_value, g_value, b_value 0-255"""

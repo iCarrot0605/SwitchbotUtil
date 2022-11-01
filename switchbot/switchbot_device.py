@@ -18,7 +18,7 @@ class SwitchbotDevice(Switchbot):
         """Get device information"""
         header = self.gen_sign()
         response = requests.get("https://api.switch-bot.com/v1.1/devices/" + self.deviceId + "/status", headers=header)
-        status  = json.loads(response.text)
+        status = json.loads(response.text)
         return status['body']
 
     def command(self, deviceId, body):

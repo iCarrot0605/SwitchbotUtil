@@ -30,7 +30,6 @@ class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice):
 
         arg: 0-3"""
         self._body['command'] = "PowLevel"
-        }
         self._body['parameter'] = powerlevel
         result = self.command(self.deviceId, self._body)
         return result.text
