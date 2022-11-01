@@ -4,6 +4,11 @@ import json
 
 class SwitchbotDevice(Switchbot):
     """Switchbot device class"""
+    body = {
+        "commandType": "command",
+        "parameter": "default"
+    }
+
     def __init__(self, deviceId):
         """Constructor"""
         self.deviceId = deviceId

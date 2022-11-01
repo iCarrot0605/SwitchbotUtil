@@ -1,5 +1,6 @@
 from .switchbot_device import SwitchbotDevice
 
+
 class SwitchbotBot(SwitchbotDevice):
     """Switchbot bot class"""
     def __init__(self, deviceId):
@@ -13,10 +14,6 @@ class SwitchbotBot(SwitchbotDevice):
 
     def press(self):
         """press action"""
-        body = {
-            "commandType": "command",
-            "parameter": "default",
-            "command": "press"
-        }
-        result = self.command(self.deviceId, body)
+        self.body['command'] = "press"
+        result = self.command(self.deviceId, self.body)
         return result.text
