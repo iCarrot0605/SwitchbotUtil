@@ -4,7 +4,7 @@ import json
 
 class SwitchbotDevice(Switchbot):
     """Switchbot device class"""
-    body = {
+    _body = {
         "commandType": "command",
         "parameter": "default"
     }
@@ -27,20 +27,12 @@ class SwitchbotDevice(Switchbot):
 
     def turn_off(self):
         """Turn off device"""
-        body = {
-            "commandType": "command",
-            "parameter": "default",
-            "command": "turnOff"
-        }
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "turnOff"
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def turn_on(self):
         """Turn on device"""
-        body = {
-            "commandType": "command",
-            "parameter": "default",
-            "command": "turnOn"
-        }
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "turnOn"
+        result = self.command(self.deviceId, self._body)
         return result.text

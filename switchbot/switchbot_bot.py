@@ -14,6 +14,6 @@ class SwitchbotBot(SwitchbotDevice):
 
     def press(self):
         """press action"""
-        self.body['command'] = "press"
-        result = self.command(self.deviceId, self.body)
+        self._body['command'] = "press"
+        result = self.command(self.deviceId, self._body)
         return result.text
