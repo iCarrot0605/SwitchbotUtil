@@ -1,30 +1,31 @@
-from .switchbot_plug_mini_us import SwitchbotPlugMiniUS
+from .switchbot_device import SwitchbotDevice
 
-class SwitchbotStripLight(SwitchbotPlugMiniUS):
+
+class SwitchbotStripLight(SwitchbotDevice):
     def __init__(self, deviceId):
         """Constructor"""
         super().__init__(deviceId)
 
+    def toggle(self):
+        """Toggle state"""
+        self._body['command'] = 'toggle'
+        result = self.command(self.deviceId, self._body)
+        return result.text
+
     def set_brightness(self, brightness):
         """Set brightness"""
-        body = {
-            "commandType": "command",
-            "command": "setBrightness",
-        }
-        body['parameter'] = brightness
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "setBrightness"
+        self._body['parameter'] = brightness
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def set_color(self, r, g ,b):
         """Set color
 
         args: r_value, g_value, b_value 0-255"""
-        body = {
-            "commandType": "command",
-            "command": "setColor",
-        }
-        body['parameter'] = '{}:{}:{}'.format(r, g, b)
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "setColor"
+        self._body['parameter'] = '{}:{}:{}'.format(r, g, b)
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def get_power(self):
