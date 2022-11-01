@@ -1,11 +1,11 @@
 import requests
 import json
-from switchbot.switchbot import Switchbot
+from .switchbot import Switchbot
+
 
 class SwitchbotWebhook(Switchbot):
     baseurl = 'https://api.switch-bot.com/v1.1/webhook/'
-	
-	
+
     def __init__(self):
         super().__init__()
 
@@ -34,7 +34,8 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "queryDetails"}
         body['urls'] = url
         posturl = self.baseurl + 'queryWebhook'
-        response = requests.post(posturl, headers=header, data=json.dumps(body))
+        response = requests.post(posturl, headers=header,
+                                 data=json.dumps(body))
         return response.text
 
     def update_webhook(self, url):

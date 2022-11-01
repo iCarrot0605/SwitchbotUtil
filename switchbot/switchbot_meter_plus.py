@@ -1,4 +1,5 @@
-from switchbot.switchbot_meter import SwitchbotMeter
+from .switchbot_meter import SwitchbotMeter
+
 
 class SwitchbotMeterPlus(SwitchbotMeter):
     """Switchbot Meter Plus class"""

@@ -6,6 +6,7 @@ import hmac
 import base64
 import uuid
 
+
 class Switchbot:
     """Switchbot Utility class"""
     def __init__(self):
@@ -40,7 +41,7 @@ class Switchbot:
 
         sign = base64.b64encode(hmac.new(secret, msg=string_to_sign, digestmod=hashlib.sha256).digest())
 
-        header={}
+        header = {}
         header["Authorization"] = token
         header["sign"] = str(sign, 'utf-8')
         header["t"] = str(t)
@@ -48,11 +49,11 @@ class Switchbot:
 
         return header
 
-    def devicelist(self):
+    def _devicelist(self):
         """Create all Switchbot device list as deviceList.txt"""
         header = self.gen_sign()
         response = requests.get("https://api.switch-bot.com/v1.1/devices", headers=header)
-        devices  = json.loads(response.text)
+        devices = json.loads(response.text)
 
         with open('deviceList.txt', 'w', encoding='utf-8', newline='\n') as f:
             for device in devices['body']['deviceList']:
@@ -67,18 +68,18 @@ class Switchbot:
                 f.write(device['remoteType'] + ', ')
                 f.write(device['hubDeviceId'] + '\n')
 
-    def get_scene_list(self):
+    def _get_scene_list(self):
         """Get scene List as sceneList.txt"""
         header = self.gen_sign()
         response = requests.get("https://api.switch-bot.com/v1.1/scenes", headers=header)
-        scenes  = json.loads(response.text)
+        scenes = json.loads(response.text)
 
         with open('sceneList.txt', 'w', encoding='utf-8', newline='\n') as f:
             for scene in scenes['body']:
                 f.write(scene['sceneId'] + ', ')
                 f.write(scene['sceneName'] + '\n')
 
-    def scene_execute(self, sceneId):
+    def _scene_execute(self, sceneId):
         """Execute scene"""
         header = self.gen_sign()
         url = "https://api.switch-bot.com/v1.1/scenes/" + sceneId + "/execute"

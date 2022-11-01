@@ -1,4 +1,5 @@
-from switchbot.switchbot_device import SwitchbotDevice
+from .switchbot_device import SwitchbotDevice
+
 
 class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice):
     """Switchbot Robot Vacuum Cleaner S1 class"""
@@ -8,44 +9,29 @@ class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice):
 
     def start(self):
         """Start vacuuming"""
-        body = {
-           "commandType": "command",
-           "command": "start",
-           "parameter": "default"
-        }
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "start"
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def stop(self):
         """Stop vacuuming"""
-        body = {
-            "commandType": "command",
-            "command": "stop",
-            "parameter": "default"
-        }
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "stop"
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def dock(self):
         """Return tu charging dock"""
-        body = {
-            "commandType": "command",
-            "command": "dock",
-            "parameter": "default"
-        }
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "dock"
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def power_level(self, powerlevel):
         """Set suction power level
 
         arg: 0-3"""
-        body = {
-            "commandType": "command",
-            "command": "PowLevel"
-        }
-        body['parameter'] = powerlevel
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "PowLevel"
+        self._body['parameter'] = powerlevel
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def get_working_status(self):

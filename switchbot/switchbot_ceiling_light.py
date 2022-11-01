@@ -1,4 +1,5 @@
-from switchbot.switchbot_color_bulb import SwitchbotColorBulb
+from .switchbot_color_bulb import SwitchbotColorBulb
+
 
 class SwitchbotCeilingLight(SwitchbotColorBulb):
     """Switchbot Ceiling Light class"""
@@ -6,7 +7,7 @@ class SwitchbotCeilingLight(SwitchbotColorBulb):
         """Constructor"""
         super().__init__(deviceId)
 
-    def set_color(self,r, g, b):
+    def set_color(self, r, g, b):
         """Do nothing"""
         pass
 
