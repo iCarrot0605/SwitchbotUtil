@@ -1,5 +1,6 @@
 from .switchbot_device import SwitchbotDevice
 
+
 class SwitchbotCurtain(SwitchbotDevice):
     """Switchbot Curtain class"""
     def __init(self, deviceId):
@@ -10,12 +11,10 @@ class SwitchbotCurtain(SwitchbotDevice):
         """Set curtain position 0-100%
 
         arg: position curtain position 0-100%"""
-        body = {
-            "commandType": "command",
-            "command": "setPosition"
-        }
-        body["parameter"] = '0,ff,{}'.format(position)
-        result = self.command(self.deviceId, body)
+
+        self._body['command'] =  "setPosition"
+        self._body["parameter"] = '0,ff,{}'.format(position)
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def open(self):
