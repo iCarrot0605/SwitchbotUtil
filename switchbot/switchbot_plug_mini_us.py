@@ -1,5 +1,6 @@
 from .switchbot_plug import SwitchbotPlug
 
+
 class SwitchbotPlugMiniUS(SwitchbotPlug):
     """Switchbot Plug Mini(US) class"""
     def __init__(self, deviceId):
@@ -8,12 +9,8 @@ class SwitchbotPlugMiniUS(SwitchbotPlug):
 
     def toggle(self):
         """Toggle plug state"""
-        body = {
-            "commandType": "command",
-            "command": "toggle",
-            "parameter": "default"
-        }
-        result = self.command(self.deviceId, body)
+        self._body['command'] = "toggle"
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def get_voltage(self):

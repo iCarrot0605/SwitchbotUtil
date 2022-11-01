@@ -1,5 +1,6 @@
 from .switchbot_device import SwitchbotDevice
 
+
 class SwitchbotPlug(SwitchbotDevice):
     """Switchbot Plug class"""
     def __init__(self, deviceId):
