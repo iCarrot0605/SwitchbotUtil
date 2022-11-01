@@ -1,5 +1,6 @@
 from .switchbot_device import SwitchbotDevice
 
+
 class SwitchbotHumidifier(SwitchbotDevice):
     """Switchbot Humicifier class"""
     def __init__(self, deviceId):
@@ -8,13 +9,10 @@ class SwitchbotHumidifier(SwitchbotDevice):
 
     def set_mode(self,mode):
         """Set device mode"""
-        body = {
-            "commandType": "command",
-            "command": "setMode"
-        }
-        body['parameter'] = mode
+        self._body['command'] = "setMode"
+        self._body['parameter'] = mode
 
-        result = self.command(self.deviceId, body)
+        result = self.command(self.deviceId, self._body)
         return result.text
 
     def get_power(self):

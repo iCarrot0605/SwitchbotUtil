@@ -1,5 +1,6 @@
 from .switchbot_color_bulb import SwitchbotColorBulb
 
+
 class SwitchbotCeilingLight(SwitchbotColorBulb):
     """Switchbot Ceiling Light class"""
     def __init__(self, deviceId):

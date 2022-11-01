@@ -1,5 +1,6 @@
 from .switchbot_device import SwitchbotDevice
 
+
 class SwitchbotMeter(SwitchbotDevice):
     """Switchbot meter class"""
     def __init__(self, deviceId):

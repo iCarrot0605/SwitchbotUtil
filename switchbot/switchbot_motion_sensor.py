@@ -1,5 +1,6 @@
 from .switchbot_device import SwitchbotDevice
 
+
 class SwitchbotMotionSensor(SwitchbotDevice):
     """Switchbot Motion Sensor class"""
     def __init__(self, deviceId):
