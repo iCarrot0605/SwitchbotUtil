@@ -1,18 +1,26 @@
-# SwitchbotUtil
+# Switchbotpy
 
-## Switchbot Utilities
+Python Switchbot Utilities using Switchbot API.
 
-元々、[Switchbot API V1.1用の署名ヘッダー作成プログラム](https://qiita.com/hide19710605/items/25316411cc277df2835b)を作り、それを利用するためのプログラムを作ろうとしていました。Pythonのclassを勉強するためにこんな感じになりました。
+## Getting start
 
-## 使い方
+Install from PyPI
 
-tokenとsecretの入手
+```python
+pip install switchbotpy
+```
 
-1. Switchbot App(V6.14以降)をダウンロード
+Get token and secret,
 
-1. 「プロフィール」＞「設定」へと進み、「アプリバージョン」のフィールドを10回タップすると表示される「開発者向けオプション」から取得することができます。
+1. Download the SwitchBot app on App Store or Google Play Store
+2. Register a SwitchBot account and log in into your account
+3. Generate an Open Token within the app
+a) Go to Profile > Preference
+b) Tap App Version 10 times. Developer Options will show up
+c) Tap Developer Options
+d) Copy token and secret
 
-以下のようなsettings.jsonファイルを作成しtokenとsecretを記入
+create `settings.json` file, and fill token and secret.
 
 ```python
 {
@@ -21,29 +29,10 @@ tokenとsecretの入手
 }
 ```
 
-`python3 get_devicelist.py`で同じディレクトリ内にdeviceList.txtというSwitchbotデバイス一覧ファイルが作成されます。
-
-deviceList.txt内のdeviceIDを使って各種デバイスを操作します。
-
-## サンプルプログラム
-
-Switchbot Botの電源ON/OFFを確認する
+Run example script.
 
 ```python
-from switchbot.switchbot_bot import SwitchbotBot
-bot = SwitchbotBot('BotdeviceId')
-print(bot.get_power())
+python3 example/get_devicelist.py
 ```
 
-Switchbot Lockを解除する
-
-```python
-from switchbot.switchbot_lock import SwitchbotLock
-lock = SwitchbotLock('LockDeviceId')
-lock.unlock()
-```
-
-## TODO
-
-1. Switchbot Keypad/Keypad touchのパスコード作成は今のところちゃんと動作していません。原因不明です。
-1. PyPiに登録したいけど、登録できるような形に仕上げる能力がありません。
+Scripts makes `deviceList.txt`.You can manipulate device using diviceId.
