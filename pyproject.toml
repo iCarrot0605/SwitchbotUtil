@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61.0", "requests"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "switchbotpy"
@@ -10,6 +10,7 @@ authors = [
 ]
 description = "Python Switchbot utilities"
 readme = "README.md"
+dependencies = ["requests"]
 requires-python = ">=3.6"
 keywords = [
     "Switchbot",
@@ -23,5 +24,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/iCarrot0605/SwitchbotUtil"
-"Bug Tracker" = "https://github.com/iCarrot0605/SwitchbotUtil/issues"
+"Homepage" = "https://github.com/iCarrot0605/Switchbotpy"
+"Bug Tracker" = "https://github.com/iCarrot0605/Switchbotpy/issues"
