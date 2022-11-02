@@ -1,4 +1,4 @@
-from switchbot.switchbot_keypad import SwitchbotKeypad
+from switchbotpy.switchbot_keypad import SwitchbotKeypad
 keypad = SwitchbotKeypad('KeypadDeviceId')
 print(keypad.create_key(name='Test code', 
                         type='timeLimit', 

@@ -4,7 +4,13 @@ Python Switchbot Utilities using Switchbot API.
 
 ## Getting start
 
-Please follow these steps,
+Install from PyPI
+
+```python
+pip install switchbotpy
+```
+
+Get token and secret,
 
 1. Download the SwitchBot app on App Store or Google Play Store
 2. Register a SwitchBot account and log in into your account
@@ -14,10 +20,19 @@ b) Tap App Version 10 times. Developer Options will show up
 c) Tap Developer Options
 d) Copy token and secret
 
-Install from PyPI
+create `settings.json` file, and fill token and secret.
 
 ```python
-pip install switchbotpy
+{
+    "token": "",
+    "secret": ""
+}
 ```
 
-## Under construction
+Run example script.
+
+```python
+python3 example/get_devicelist.py
+```
+
+Scripts makes `deviceList.txt`.You can manipulate device using diviceId.

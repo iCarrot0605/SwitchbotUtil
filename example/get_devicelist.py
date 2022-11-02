@@ -1,4 +1,4 @@
-from switchbot.switchbot import Switchbot
+from switchbotpy.switchbot import Switchbot
 
 switchbot = Switchbot()
 switchbot._devicelist()
