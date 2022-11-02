@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "requests"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "switchbotpy"
+version = "0.0.1"
+authors = [
+  { name="MATSUMURA Hidetoshi", email="icarrot@mac.com" },
+]
+description = "Python Switchbot utilities"
+readme = "README.md"
+requires-python = ">=3.6"
+keywords = [
+    "Switchbot",
+    "IoT",
+    "Switchbot API"
+]
+classifiers = [
+    "Programming Language :: Python :: 3.6",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/iCarrot0605/SwitchbotUtil"
+"Bug Tracker" = "https://github.com/iCarrot0605/SwitchbotUtil/issues"
