@@ -7,7 +7,7 @@ Python Switchbot Utilities using Switchbot API.
 Install from PyPI
 
 ```python
-pip install switchbotpy
+pip install switchbot_utility
 ```
 
 Get token and secret,
