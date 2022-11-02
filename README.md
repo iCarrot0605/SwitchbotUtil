@@ -1,4 +1,4 @@
-# Switchbotpy
+# Switchbot_utility
 
 Python Switchbot Utilities using Switchbot API.
 
