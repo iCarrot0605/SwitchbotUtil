@@ -7,14 +7,6 @@ class SwitchbotLock(SwitchbotDevice):
         """Constructor"""
         super().__init__(deviceId)
 
-    def turn_on(self):
-        """Do nothing"""
-        pass
-
-    def turn_off(self):
-        """Do nothing"""
-        pass
-
     def lock(self):
         """Lock a lock"""
         body = {

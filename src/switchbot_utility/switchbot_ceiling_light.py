@@ -1,7 +1,8 @@
 from .switchbot_color_bulb import SwitchbotColorBulb
+from .onoff_ability import OnOffAbirity
 
 
-class SwitchbotCeilingLight(SwitchbotColorBulb):
+class SwitchbotCeilingLight(SwitchbotColorBulb, OnOffAbirity):
     """Switchbot Ceiling Light class"""
     def __init__(self, deviceId):
         """Constructor"""

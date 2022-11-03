@@ -49,7 +49,7 @@ class Switchbot:
 
         return header
 
-    def _devicelist(self):
+    def devicelist(self):
         """Create all Switchbot device list as deviceList.txt"""
         header = self.gen_sign()
         response = requests.get("https://api.switch-bot.com/v1.1/devices", headers=header)
@@ -68,7 +68,7 @@ class Switchbot:
                 f.write(device['remoteType'] + ', ')
                 f.write(device['hubDeviceId'] + '\n')
 
-    def _get_scene_list(self):
+    def get_scene_list(self):
         """Get scene List as sceneList.txt"""
         header = self.gen_sign()
         response = requests.get("https://api.switch-bot.com/v1.1/scenes", headers=header)
@@ -79,7 +79,7 @@ class Switchbot:
                 f.write(scene['sceneId'] + ', ')
                 f.write(scene['sceneName'] + '\n')
 
-    def _scene_execute(self, sceneId):
+    def scene_execute(self, sceneId):
         """Execute scene"""
         header = self.gen_sign()
         url = "https://api.switch-bot.com/v1.1/scenes/" + sceneId + "/execute"
