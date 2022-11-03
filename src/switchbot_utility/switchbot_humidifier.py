@@ -1,7 +1,8 @@
 from .switchbot_device import SwitchbotDevice
+from .onoff_ability import OnOffAbirity
 
 
-class SwitchbotHumidifier(SwitchbotDevice):
+class SwitchbotHumidifier(SwitchbotDevice, OnOffAbirity):
     """Switchbot Humicifier class"""
     def __init__(self, deviceId):
         """Constructor"""
