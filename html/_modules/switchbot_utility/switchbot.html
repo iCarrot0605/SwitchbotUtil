@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>switchbot_utility.switchbot &mdash; switchbot_utility  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> switchbot_utility
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../switchbot_utility.html">switchbot_utility package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">switchbot_utility</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">switchbot_utility.switchbot</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for switchbot_utility.switchbot</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+
+<div class="viewcode-block" id="Switchbot"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot.Switchbot">[docs]</a><span class="k">class</span> <span class="nc">Switchbot</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Switchbot Utility class&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Switchbot.read_token"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot.Switchbot.read_token">[docs]</a>    <span class="k">def</span> <span class="nf">read_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Import access token and secret from settings.json&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;settings.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">settings</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">token</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">]</span>
+        <span class="n">secret</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;secret&#39;</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">token</span><span class="p">,</span> <span class="n">secret</span></div>
+
+<div class="viewcode-block" id="Switchbot.gen_sign"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot.Switchbot.gen_sign">[docs]</a>    <span class="k">def</span> <span class="nf">gen_sign</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate Switchbot API v1.1 sign header</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        Switchbot API v1.1 sign header</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">token</span><span class="p">,</span> <span class="n">secret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_token</span><span class="p">()</span>
+
+        <span class="n">nonce</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+        <span class="n">string_to_sign</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
+
+        <span class="n">string_to_sign</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">string_to_sign</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+        <span class="n">sign</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">string_to_sign</span><span class="p">,</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+
+        <span class="n">header</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="n">header</span><span class="p">[</span><span class="s2">&quot;sign&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">header</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">header</span><span class="p">[</span><span class="s2">&quot;nonce&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nonce</span>
+
+        <span class="k">return</span> <span class="n">header</span></div>
+
+    <span class="k">def</span> <span class="nf">_devicelist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create all Switchbot device list as deviceList.txt&quot;&quot;&quot;</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.switch-bot.com/v1.1/devices&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;deviceList.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">][</span><span class="s1">&#39;deviceList&#39;</span><span class="p">]:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;deviceId&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;deviceType&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;hubDeviceId&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+            <span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">][</span><span class="s1">&#39;infraredRemoteList&#39;</span><span class="p">]:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;deviceId&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;remoteType&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">device</span><span class="p">[</span><span class="s1">&#39;hubDeviceId&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_scene_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get scene List as sceneList.txt&quot;&quot;&quot;</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.switch-bot.com/v1.1/scenes&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+        <span class="n">scenes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sceneList.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">scene</span> <span class="ow">in</span> <span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scene</span><span class="p">[</span><span class="s1">&#39;sceneId&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scene</span><span class="p">[</span><span class="s1">&#39;sceneName&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_scene_execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sceneId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Execute scene&quot;&quot;&quot;</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.switch-bot.com/v1.1/scenes/&quot;</span> <span class="o">+</span> <span class="n">sceneId</span> <span class="o">+</span> <span class="s2">&quot;/execute&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, MATSUMURA Hidetoshi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
