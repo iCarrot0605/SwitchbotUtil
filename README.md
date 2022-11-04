@@ -34,7 +34,7 @@ Scripts makes `deviceList.txt`. You can manipulate device using diviceId in this
 ## Installing
 
 ```plain
-pip install switchbot_utility
+pip install switchbot-utility
 ```
 
 ## Supported divice
