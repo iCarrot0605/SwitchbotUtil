@@ -1,16 +1,18 @@
-from .switchbot_device import SwitchbotDevice
 from datetime import datetime as dt
+
+from .switchbot_device import SwitchbotDevice
 
 
 class SwitchbotKeypad(SwitchbotDevice):
     """Switchbot Keypad class"""
+
     def __init__(self, deviceId):
         """Constructor"""
         super().__init__(deviceId)
 
     def _convert_datetime(self, datetime):
         """Convert datetime string to unixtime"""
-        return int(dt.timestamp(dt.strptime(datetime, '%Y/%m/%d %H:%M:%S')))
+        return int(dt.timestamp(dt.strptime(datetime, "%Y/%m/%d %H:%M:%S")))
 
     def create_key(self, name, type, password, start_time, end_time):
         """Create a new passcode
@@ -22,29 +24,23 @@ class SwitchbotKeypad(SwitchbotDevice):
             start_time: start time like 2000/12/31 23:59:15
             end_time: end time like start_time"""
         parameter = {}
-        parameter['name'] = name
-        parameter['type'] = type
-        parameter['password'] = password
-        parameter['startTime'] = self._convert_datetime(start_time)
-        parameter['endTime'] = self._convert_datetime(end_time)
+        parameter["name"] = name
+        parameter["type"] = type
+        parameter["password"] = password
+        parameter["startTime"] = self._convert_datetime(start_time)
+        parameter["endTime"] = self._convert_datetime(end_time)
 
-        body = {
-            "commandType": "command",
-            "command": "createKey"
-        }
-        body['parameter'] = parameter
+        body = {"commandType": "command", "command": "createKey"}
+        body["parameter"] = parameter
 
         result = self.command(self.deviceId, body)
         return result.text
 
     def delete_key(self, keyId):
-        body = {
-            "commandType": "command",
-            "command": "deleteKey"
-        }
+        body = {"commandType": "command", "command": "deleteKey"}
         parameter = {}
-        parameter['id'] = keyId
-        body['parameter'] = parameter
+        parameter["id"] = keyId
+        body["parameter"] = parameter
 
         result = self.command(self.deviceId, body)
         return result.text
@@ -52,16 +48,24 @@ class SwitchbotKeypad(SwitchbotDevice):
     def key_list(self):
         """Get keypad key list to file"""
         import json
+
         import requests
+
         header = self.gen_sign()
-        response = requests.get("https://api.switch-bot.com/v1.1/devices", headers=header)
+        response = requests.get(
+            "https://api.switch-bot.com/v1.1/devices", headers=header
+        )
         devices = json.loads(response.text)
 
-        key_list = [device["keyList"] for device in devices['body']['deviceList'] if device["deviceId"] == self.deviceId]
-        filename = f'keypad_{self.deviceId}_keyList.txt'
-        with open(filename, 'w', encoding='utf-8', newline='\n') as f:
+        key_list = [
+            device["keyList"]
+            for device in devices["body"]["deviceList"]
+            if device["deviceId"] == self.deviceId
+        ]
+        filename = f"keypad_{self.deviceId}_keyList.txt"
+        with open(filename, "w", encoding="utf-8", newline="\n") as f:
             for key in key_list[0]:
-                f.write(str(key['id']) + ', ')
-                f.write(key['name'] + ', ')
-                f.write(key['type'] + ', ')
-                f.write(key['status'] + '\n')
+                f.write(str(key["id"]) + ", ")
+                f.write(key["name"] + ", ")
+                f.write(key["type"] + ", ")
+                f.write(key["status"] + "\n")
