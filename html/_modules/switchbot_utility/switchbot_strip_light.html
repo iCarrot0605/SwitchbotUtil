@@ -67,9 +67,10 @@
              
   <h1>Source code for switchbot_utility.switchbot_strip_light</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.switchbot_device</span> <span class="kn">import</span> <span class="n">SwitchbotDevice</span>
+<span class="kn">from</span> <span class="nn">.onoff_ability</span> <span class="kn">import</span> <span class="n">OnOffAbility</span>
 
 
-<div class="viewcode-block" id="SwitchbotStripLight"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_strip_light.SwitchbotStripLight">[docs]</a><span class="k">class</span> <span class="nc">SwitchbotStripLight</span><span class="p">(</span><span class="n">SwitchbotDevice</span><span class="p">):</span>
+<div class="viewcode-block" id="SwitchbotStripLight"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_strip_light.SwitchbotStripLight">[docs]</a><span class="k">class</span> <span class="nc">SwitchbotStripLight</span><span class="p">(</span><span class="n">SwitchbotDevice</span><span class="p">,</span> <span class="n">OnOffAbility</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span>

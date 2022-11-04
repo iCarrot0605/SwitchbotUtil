@@ -41,11 +41,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">switchbot_utility package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#switchbot-utility-onoff-ability-module">switchbot_utility.onoff_ability module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-switchbot_utility.onoff_ability">switchbot_utility.onoff_ability module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility"><code class="docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility.turn_off"><code class="docutils literal notranslate"><span class="pre">OnOffAbility.turn_off()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility.turn_on"><code class="docutils literal notranslate"><span class="pre">OnOffAbility.turn_on()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-switchbot_utility.switchbot">switchbot_utility.switchbot module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#switchbot_utility.switchbot.Switchbot"><code class="docutils literal notranslate"><span class="pre">Switchbot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot.Switchbot.devicelist"><code class="docutils literal notranslate"><span class="pre">Switchbot.devicelist()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot.Switchbot.gen_sign"><code class="docutils literal notranslate"><span class="pre">Switchbot.gen_sign()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot.Switchbot.get_scene_list"><code class="docutils literal notranslate"><span class="pre">Switchbot.get_scene_list()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot.Switchbot.read_token"><code class="docutils literal notranslate"><span class="pre">Switchbot.read_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot.Switchbot.scene_execute"><code class="docutils literal notranslate"><span class="pre">Switchbot.scene_execute()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -101,8 +111,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice"><code class="docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice.command"><code class="docutils literal notranslate"><span class="pre">SwitchbotDevice.command()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice.get_status"><code class="docutils literal notranslate"><span class="pre">SwitchbotDevice.get_status()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice.turn_off"><code class="docutils literal notranslate"><span class="pre">SwitchbotDevice.turn_off()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice.turn_on"><code class="docutils literal notranslate"><span class="pre">SwitchbotDevice.turn_on()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -202,8 +210,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_lock.SwitchbotLock.get_door_state"><code class="docutils literal notranslate"><span class="pre">SwitchbotLock.get_door_state()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_lock.SwitchbotLock.get_lock_state"><code class="docutils literal notranslate"><span class="pre">SwitchbotLock.get_lock_state()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_lock.SwitchbotLock.lock"><code class="docutils literal notranslate"><span class="pre">SwitchbotLock.lock()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_lock.SwitchbotLock.turn_off"><code class="docutils literal notranslate"><span class="pre">SwitchbotLock.turn_off()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_lock.SwitchbotLock.turn_on"><code class="docutils literal notranslate"><span class="pre">SwitchbotLock.turn_on()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#switchbot_utility.switchbot_lock.SwitchbotLock.unlock"><code class="docutils literal notranslate"><span class="pre">SwitchbotLock.unlock()</span></code></a></li>
 </ul>
 </li>
@@ -326,8 +332,27 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </div>
-<div class="section" id="switchbot-utility-onoff-ability-module">
-<h2>switchbot_utility.onoff_ability module<a class="headerlink" href="#switchbot-utility-onoff-ability-module" title="Permalink to this heading"></a></h2>
+<div class="section" id="module-switchbot_utility.onoff_ability">
+<span id="switchbot-utility-onoff-ability-module"></span><h2>switchbot_utility.onoff_ability module<a class="headerlink" href="#module-switchbot_utility.onoff_ability" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="switchbot_utility.onoff_ability.OnOffAbility">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.onoff_ability.</span></span><span class="sig-name descname"><span class="pre">OnOffAbility</span></span><a class="reference internal" href="_modules/switchbot_utility/onoff_ability.html#OnOffAbility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.onoff_ability.OnOffAbility" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot.Switchbot" title="switchbot_utility.switchbot.Switchbot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Switchbot</span></code></a></p>
+<p>On/Off Ability to some Switchbot devices.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="switchbot_utility.onoff_ability.OnOffAbility.turn_off">
+<span class="sig-name descname"><span class="pre">turn_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/onoff_ability.html#OnOffAbility.turn_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.onoff_ability.OnOffAbility.turn_off" title="Permalink to this definition"></a></dt>
+<dd><p>Turn off device</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switchbot_utility.onoff_ability.OnOffAbility.turn_on">
+<span class="sig-name descname"><span class="pre">turn_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/onoff_ability.html#OnOffAbility.turn_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.onoff_ability.OnOffAbility.turn_on" title="Permalink to this definition"></a></dt>
+<dd><p>Turn on device</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-switchbot_utility.switchbot">
 <span id="switchbot-utility-switchbot-module"></span><h2>switchbot_utility.switchbot module<a class="headerlink" href="#module-switchbot_utility.switchbot" title="Permalink to this heading"></a></h2>
@@ -337,6 +362,12 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Switchbot Utility class</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="switchbot_utility.switchbot.Switchbot.devicelist">
+<span class="sig-name descname"><span class="pre">devicelist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot.html#Switchbot.devicelist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot.Switchbot.devicelist" title="Permalink to this definition"></a></dt>
+<dd><p>Create all Switchbot device list as deviceList.txt</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot.Switchbot.gen_sign">
 <span class="sig-name descname"><span class="pre">gen_sign</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot.html#Switchbot.gen_sign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot.Switchbot.gen_sign" title="Permalink to this definition"></a></dt>
 <dd><p>Generate Switchbot API v1.1 sign header</p>
@@ -345,9 +376,21 @@ Switchbot API v1.1 sign header</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="switchbot_utility.switchbot.Switchbot.get_scene_list">
+<span class="sig-name descname"><span class="pre">get_scene_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot.html#Switchbot.get_scene_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot.Switchbot.get_scene_list" title="Permalink to this definition"></a></dt>
+<dd><p>Get scene List as sceneList.txt</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot.Switchbot.read_token">
 <span class="sig-name descname"><span class="pre">read_token</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot.html#Switchbot.read_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot.Switchbot.read_token" title="Permalink to this definition"></a></dt>
 <dd><p>Import access token and secret from settings.json</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switchbot_utility.switchbot.Switchbot.scene_execute">
+<span class="sig-name descname"><span class="pre">scene_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sceneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot.html#Switchbot.scene_execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot.Switchbot.scene_execute" title="Permalink to this definition"></a></dt>
+<dd><p>Execute scene</p>
 </dd></dl>
 
 </dd></dl>
@@ -358,7 +401,7 @@ Switchbot API v1.1 sign header</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_bot.SwitchbotBot">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.switchbot_bot.</span></span><span class="sig-name descname"><span class="pre">SwitchbotBot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_bot.html#SwitchbotBot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_bot.SwitchbotBot" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a>, <a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility" title="switchbot_utility.onoff_ability.OnOffAbility"><code class="xref py py-class docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a></p>
 <p>Switchbot bot class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_bot.SwitchbotBot.get_power">
@@ -380,7 +423,7 @@ Switchbot API v1.1 sign header</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_ceiling_light.SwitchbotCeilingLight">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.switchbot_ceiling_light.</span></span><span class="sig-name descname"><span class="pre">SwitchbotCeilingLight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_ceiling_light.html#SwitchbotCeilingLight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_ceiling_light.SwitchbotCeilingLight" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_color_bulb.SwitchbotColorBulb" title="switchbot_utility.switchbot_color_bulb.SwitchbotColorBulb"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotColorBulb</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_color_bulb.SwitchbotColorBulb" title="switchbot_utility.switchbot_color_bulb.SwitchbotColorBulb"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotColorBulb</span></code></a>, <a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility" title="switchbot_utility.onoff_ability.OnOffAbility"><code class="xref py py-class docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a></p>
 <p>Switchbot Ceiling Light class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_ceiling_light.SwitchbotCeilingLight.get_brightness">
@@ -462,7 +505,7 @@ Switchbot API v1.1 sign header</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_curtain.SwitchbotCurtain">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.switchbot_curtain.</span></span><span class="sig-name descname"><span class="pre">SwitchbotCurtain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_curtain.html#SwitchbotCurtain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_curtain.SwitchbotCurtain" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a>, <a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility" title="switchbot_utility.onoff_ability.OnOffAbility"><code class="xref py py-class docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a></p>
 <p>Switchbot Curtain class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_curtain.SwitchbotCurtain.close">
@@ -511,18 +554,6 @@ Switchbot API v1.1 sign header</p>
 <dd><p>Get device information</p>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="switchbot_utility.switchbot_device.SwitchbotDevice.turn_off">
-<span class="sig-name descname"><span class="pre">turn_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_device.html#SwitchbotDevice.turn_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_device.SwitchbotDevice.turn_off" title="Permalink to this definition"></a></dt>
-<dd><p>Turn off device</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="switchbot_utility.switchbot_device.SwitchbotDevice.turn_on">
-<span class="sig-name descname"><span class="pre">turn_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_device.html#SwitchbotDevice.turn_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_device.SwitchbotDevice.turn_on" title="Permalink to this definition"></a></dt>
-<dd><p>Turn on device</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -531,7 +562,7 @@ Switchbot API v1.1 sign header</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_humidifier.SwitchbotHumidifier">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.switchbot_humidifier.</span></span><span class="sig-name descname"><span class="pre">SwitchbotHumidifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_humidifier.html#SwitchbotHumidifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_humidifier.SwitchbotHumidifier" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a>, <a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility" title="switchbot_utility.onoff_ability.OnOffAbility"><code class="xref py py-class docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a></p>
 <p>Switchbot Humicifier class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_humidifier.SwitchbotHumidifier.get_auto">
@@ -611,7 +642,7 @@ Switchbot API v1.1 sign header</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_ir_device.SwitchbotIrDevice">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.switchbot_ir_device.</span></span><span class="sig-name descname"><span class="pre">SwitchbotIrDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_ir_device.html#SwitchbotIrDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_ir_device.SwitchbotIrDevice" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a>, <a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility" title="switchbot_utility.onoff_ability.OnOffAbility"><code class="xref py py-class docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a></p>
 <p>Switchbot virtual ir device</p>
 </dd></dl>
 
@@ -883,18 +914,6 @@ Switchbot API v1.1 sign header</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="switchbot_utility.switchbot_lock.SwitchbotLock.turn_off">
-<span class="sig-name descname"><span class="pre">turn_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_lock.html#SwitchbotLock.turn_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_lock.SwitchbotLock.turn_off" title="Permalink to this definition"></a></dt>
-<dd><p>Do nothing</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="switchbot_utility.switchbot_lock.SwitchbotLock.turn_on">
-<span class="sig-name descname"><span class="pre">turn_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_lock.html#SwitchbotLock.turn_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_lock.SwitchbotLock.turn_on" title="Permalink to this definition"></a></dt>
-<dd><p>Do nothing</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_lock.SwitchbotLock.unlock">
 <span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_lock.html#SwitchbotLock.unlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_lock.SwitchbotLock.unlock" title="Permalink to this definition"></a></dt>
 <dd><p>Unlock a lock</p>
@@ -962,7 +981,7 @@ Switchbot API v1.1 sign header</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_plug.SwitchbotPlug">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.switchbot_plug.</span></span><span class="sig-name descname"><span class="pre">SwitchbotPlug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_plug.html#SwitchbotPlug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_plug.SwitchbotPlug" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a>, <a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility" title="switchbot_utility.onoff_ability.OnOffAbility"><code class="xref py py-class docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a></p>
 <p>Switchbot Plug class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_plug.SwitchbotPlug.get_power">
@@ -1091,7 +1110,7 @@ Switchbot API v1.1 sign header</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_strip_light.SwitchbotStripLight">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switchbot_utility.switchbot_strip_light.</span></span><span class="sig-name descname"><span class="pre">SwitchbotStripLight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_strip_light.html#SwitchbotStripLight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_strip_light.SwitchbotStripLight" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#switchbot_utility.switchbot_device.SwitchbotDevice" title="switchbot_utility.switchbot_device.SwitchbotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">SwitchbotDevice</span></code></a>, <a class="reference internal" href="#switchbot_utility.onoff_ability.OnOffAbility" title="switchbot_utility.onoff_ability.OnOffAbility"><code class="xref py py-class docutils literal notranslate"><span class="pre">OnOffAbility</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="switchbot_utility.switchbot_strip_light.SwitchbotStripLight.get_brightness">
 <span class="sig-name descname"><span class="pre">get_brightness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/switchbot_utility/switchbot_strip_light.html#SwitchbotStripLight.get_brightness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switchbot_utility.switchbot_strip_light.SwitchbotStripLight.get_brightness" title="Permalink to this definition"></a></dt>
