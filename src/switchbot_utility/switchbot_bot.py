@@ -1,8 +1,8 @@
 from .switchbot_device import SwitchbotDevice
-from .onoff_ability import OnOffAbirity
+from .onoff_ability import OnOffAbility
 
 
-class SwitchbotBot(SwitchbotDevice, OnOffAbirity):
+class SwitchbotBot(SwitchbotDevice, OnOffAbility):
     """Switchbot bot class"""
     def __init__(self, deviceId):
         """Constructor"""

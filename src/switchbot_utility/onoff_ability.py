@@ -1,7 +1,8 @@
 from .switchbot import Switchbot
 
 
-class OnOffAbirity(Switchbot):
+class OnOffAbility(Switchbot):
+    """On/Off Ability to some Switchbot devices."""
     def __init__(self):
         pass
 
