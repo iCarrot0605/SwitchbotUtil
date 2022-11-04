@@ -72,19 +72,19 @@
 
 
 <div class="viewcode-block" id="SwitchbotWebhook"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_webhook.SwitchbotWebhook">[docs]</a><span class="k">class</span> <span class="nc">SwitchbotWebhook</span><span class="p">(</span><span class="n">Switchbot</span><span class="p">):</span>
-    <span class="n">baseurl</span> <span class="o">=</span> <span class="s1">&#39;https://api.switch-bot.com/v1.1/webhook/&#39;</span>
+    <span class="n">_baseurl</span> <span class="o">=</span> <span class="s2">&quot;https://api.switch-bot.com/v1.1/webhook/&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
     <span class="sd">&quot;&quot;&quot;Switchbot Webhook action&quot;&quot;&quot;</span>
+
 <div class="viewcode-block" id="SwitchbotWebhook.setup_webhook"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_webhook.SwitchbotWebhook.setup_webhook">[docs]</a>    <span class="k">def</span> <span class="nf">setup_webhook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Setup Webhook&quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
-        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;setupWebhook&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;deviceList&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL&quot;</span><span class="p">}</span>
-        <span class="n">body</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
-        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseurl</span> <span class="o">+</span> <span class="s1">&#39;setupWebhook&#39;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;setupWebhook&quot;</span><span class="p">,</span> <span class="s2">&quot;deviceList&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL&quot;</span><span class="p">}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseurl</span> <span class="o">+</span> <span class="s2">&quot;setupWebhook&quot;</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
@@ -92,35 +92,34 @@
         <span class="sd">&quot;&quot;&quot;Get webhook configuration&quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
         <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;queryUrl&quot;</span><span class="p">}</span>
-        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseurl</span> <span class="o">+</span> <span class="s1">&#39;queryWebhook&#39;</span>
+        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseurl</span> <span class="o">+</span> <span class="s2">&quot;queryWebhook&quot;</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
-    
+
 <div class="viewcode-block" id="SwitchbotWebhook.query_details"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_webhook.SwitchbotWebhook.query_details">[docs]</a>    <span class="k">def</span> <span class="nf">query_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get webhook detail configurations&quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
         <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;queryDetails&quot;</span><span class="p">}</span>
-        <span class="n">body</span><span class="p">[</span><span class="s1">&#39;urls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
-        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseurl</span> <span class="o">+</span> <span class="s1">&#39;queryWebhook&#39;</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-                                 <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;urls&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseurl</span> <span class="o">+</span> <span class="s2">&quot;queryWebhook&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
 <div class="viewcode-block" id="SwitchbotWebhook.update_webhook"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_webhook.SwitchbotWebhook.update_webhook">[docs]</a>    <span class="k">def</span> <span class="nf">update_webhook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update webhook url&quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
         <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;updateWebhook&quot;</span><span class="p">}</span>
-        <span class="n">body</span><span class="p">[</span><span class="s1">&#39;urls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
-        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseurl</span> <span class="o">+</span> <span class="s1">&#39;queryWebhook&#39;</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;urls&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseurl</span> <span class="o">+</span> <span class="s2">&quot;queryWebhook&quot;</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
-    
+
 <div class="viewcode-block" id="SwitchbotWebhook.delete_webhook"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_webhook.SwitchbotWebhook.delete_webhook">[docs]</a>    <span class="k">def</span> <span class="nf">delete_webhook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Delete webhook&quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
         <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;deleteWebhook&quot;</span><span class="p">}</span>
-        <span class="n">body</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
-        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseurl</span> <span class="o">+</span> <span class="s1">&#39;deleteWebhook&#39;</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="n">posturl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseurl</span> <span class="o">+</span> <span class="s2">&quot;deleteWebhook&quot;</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">posturl</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div></div>
 </pre></div>

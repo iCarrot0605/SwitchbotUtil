@@ -73,10 +73,9 @@
 
 <div class="viewcode-block" id="SwitchbotDevice"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_device.SwitchbotDevice">[docs]</a><span class="k">class</span> <span class="nc">SwitchbotDevice</span><span class="p">(</span><span class="n">Switchbot</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Switchbot device class&quot;&quot;&quot;</span>
-    <span class="n">_body</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;commandType&quot;</span><span class="p">:</span> <span class="s2">&quot;command&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span>
-    <span class="p">}</span>
+
+    <span class="n">_body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;commandType&quot;</span><span class="p">:</span> <span class="s2">&quot;command&quot;</span><span class="p">,</span> <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">}</span>
+    <span class="n">_baseurl</span> <span class="o">=</span> <span class="s2">&quot;https://api.switch-bot.com/v1.1/devices/&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
@@ -85,26 +84,21 @@
 <div class="viewcode-block" id="SwitchbotDevice.get_status"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_device.SwitchbotDevice.get_status">[docs]</a>    <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get device information&quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.switch-bot.com/v1.1/devices/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span> <span class="o">+</span> <span class="s2">&quot;/status&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_baseurl</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span> <span class="o">+</span> <span class="s2">&quot;/status&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="n">status</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">status</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="n">status</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="SwitchbotDevice.command"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_device.SwitchbotDevice.command">[docs]</a>    <span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Send command&quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_sign</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://api.switch-bot.com/v1.1/devices/&quot;</span> <span class="o">+</span> <span class="n">deviceId</span> <span class="o">+</span> <span class="s2">&quot;/commands&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span></div>
-
-<div class="viewcode-block" id="SwitchbotDevice.turn_off"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_device.SwitchbotDevice.turn_off">[docs]</a>    <span class="k">def</span> <span class="nf">turn_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Turn off device&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;turnOff&quot;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
-
-<div class="viewcode-block" id="SwitchbotDevice.turn_on"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_device.SwitchbotDevice.turn_on">[docs]</a>    <span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Turn on device&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;turnOn&quot;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div></div>
+        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_baseurl</span> <span class="o">+</span> <span class="n">deviceId</span> <span class="o">+</span> <span class="s2">&quot;/commands&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">),</span>
+        <span class="p">)</span></div></div>
 </pre></div>
 
            </div>
