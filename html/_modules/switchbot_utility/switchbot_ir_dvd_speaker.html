@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>switchbot_utility.switchbot_ir_dvd_speaker &mdash; switchbot_utility  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> switchbot_utility
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../switchbot_utility.html">switchbot_utility package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">switchbot_utility</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">switchbot_utility.switchbot_ir_dvd_speaker</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for switchbot_utility.switchbot_ir_dvd_speaker</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.switchbot_ir_device</span> <span class="kn">import</span> <span class="n">SwitchbotIrDevice</span>
+
+
+<div class="viewcode-block" id="IrDvd"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd">[docs]</a><span class="k">class</span> <span class="nc">IrDvd</span><span class="p">(</span><span class="n">SwitchbotIrDevice</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Switchbot virtual ir Tv&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span>
+
+<div class="viewcode-block" id="IrDvd.set_mute"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.set_mute">[docs]</a>    <span class="k">def</span> <span class="nf">set_mute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mute/unmute&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;setMute&#39;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrDvd.fast_forward"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.fast_forward">[docs]</a>    <span class="k">def</span> <span class="nf">fast_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fast forward&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FastForward&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrDvd.rewind"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.rewind">[docs]</a>    <span class="k">def</span> <span class="nf">rewind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Rewind&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Rewind&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrDvd.next_track"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.next_track">[docs]</a>    <span class="k">def</span> <span class="nf">next_track</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Next track&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Next&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrDvd.previous"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.previous">[docs]</a>    <span class="k">def</span> <span class="nf">previous</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Last track&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Previous&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrDvd.pause"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.pause">[docs]</a>    <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pause&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Pause&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrDvd.play"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.play">[docs]</a>    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Play/resume&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Play&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrDvd.stop"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrDvd.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Stop&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Stop&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div></div>
+
+
+<div class="viewcode-block" id="IrSpeaker"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrSpeaker">[docs]</a><span class="k">class</span> <span class="nc">IrSpeaker</span><span class="p">(</span><span class="n">IrDvd</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;IPTV/Streamer class&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span>
+
+<div class="viewcode-block" id="IrSpeaker.volume_add"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrSpeaker.volume_add">[docs]</a>    <span class="k">def</span> <span class="nf">volume_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Volume up&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;volumeAdd&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="IrSpeaker.volume_sub"><a class="viewcode-back" href="../../switchbot_utility.html#switchbot_utility.switchbot_ir_dvd_speaker.IrSpeaker.volume_sub">[docs]</a>    <span class="k">def</span> <span class="nf">volume_sub</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Volume down&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;volumeSub&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deviceId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, MATSUMURA Hidetoshi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

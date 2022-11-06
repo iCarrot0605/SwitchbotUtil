@@ -1,10 +1,11 @@
-import json
-import requests
-import time
+import base64
 import hashlib
 import hmac
-import base64
+import json
+import time
 import uuid
+
+import requests
 
 
 class Switchbot:
