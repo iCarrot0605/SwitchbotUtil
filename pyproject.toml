@@ -24,5 +24,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/iCarrot0605/Switchbotpy"
-"Bug Tracker" = "https://github.com/iCarrot0605/Switchbotpy/issues"
+"Homepage" = "https://github.com/iCarrot0605/Switchbot_utility"
+"Bug Tracker" = "https://github.com/iCarrot0605/Switchbot_utility/issues"
