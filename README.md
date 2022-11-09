@@ -37,6 +37,10 @@ Scripts makes `deviceList.txt`. You can manipulate device using diviceId in this
 pip install switchbot-utility
 ```
 
+## Commands
+
+[Read the document](https://icarrot0605.github.io/switchbot_utility_docs/)
+
 ## Supported divice
 
 | Term                         | Description                                                  |Tested |

@@ -1,6 +1,8 @@
-from .switchbot import Switchbot
-import requests
 import json
+
+import requests
+
+from .switchbot import Switchbot
 
 
 class SwitchbotDevice(Switchbot):

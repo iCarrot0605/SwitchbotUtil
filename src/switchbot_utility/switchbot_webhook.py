@@ -17,7 +17,9 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "setupWebhook", "deviceList": "ALL"}
         body["url"] = url
         posturl = self._baseurl + "setupWebhook"
-        response = requests.post(posturl, headers=header, data=json.dumps(body))
+        response = requests.post(
+            posturl, headers=header, data=json.dumps(body)
+        )
         return response.text
 
     def query_url(self):
@@ -25,7 +27,9 @@ class SwitchbotWebhook(Switchbot):
         header = self.gen_sign()
         body = {"action": "queryUrl"}
         posturl = self._baseurl + "queryWebhook"
-        response = requests.post(posturl, headers=header, data=json.dumps(body))
+        response = requests.post(
+            posturl, headers=header, data=json.dumps(body)
+        )
         return response.text
 
     def query_details(self, url):
@@ -34,7 +38,9 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "queryDetails"}
         body["urls"] = url
         posturl = self._baseurl + "queryWebhook"
-        response = requests.post(posturl, headers=header, data=json.dumps(body))
+        response = requests.post(
+            posturl, headers=header, data=json.dumps(body)
+        )
         return response.text
 
     def update_webhook(self, url):
@@ -43,7 +49,9 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "updateWebhook"}
         body["urls"] = url
         posturl = self._baseurl + "queryWebhook"
-        response = requests.post(posturl, headers=header, data=json.dumps(body))
+        response = requests.post(
+            posturl, headers=header, data=json.dumps(body)
+        )
         return response.text
 
     def delete_webhook(self, url):
@@ -52,5 +60,7 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "deleteWebhook"}
         body["url"] = url
         posturl = self._baseurl + "deleteWebhook"
-        response = requests.post(posturl, headers=header, data=json.dumps(body))
+        response = requests.post(
+            posturl, headers=header, data=json.dumps(body)
+        )
         return response.text

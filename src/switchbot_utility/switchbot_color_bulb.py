@@ -3,6 +3,7 @@ from .switchbot_strip_light import SwitchbotStripLight
 
 class SwitchbotColorBulb(SwitchbotStripLight):
     """Constructor"""
+
     def __init__(self, deviceId):
         super().__init__(deviceId)
 
@@ -12,11 +13,11 @@ class SwitchbotColorBulb(SwitchbotStripLight):
             "commandType": "command",
             "command": "setColorTemperature",
         }
-        body['parameter'] = temperature
+        body["parameter"] = temperature
         result = self.command(self.deviceId, body)
         return result.text
 
     def get_color_temperature(self):
         """Returns the color temperature value, range from 2700 to 6500"""
         status = self.get_status()
-        return status['colorTemperature']
+        return status["colorTemperature"]

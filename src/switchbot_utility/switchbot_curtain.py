@@ -4,6 +4,7 @@ from .onoff_ability import OnOffAbility
 
 class SwitchbotCurtain(SwitchbotDevice, OnOffAbility):
     """Switchbot Curtain class"""
+
     def __init(self, deviceId):
         """Constructor"""
         super().__init__(deviceId)
@@ -13,8 +14,8 @@ class SwitchbotCurtain(SwitchbotDevice, OnOffAbility):
 
         arg: position curtain position 0-100%"""
 
-        self._body['command'] = "setPosition"
-        self._body["parameter"] = '0,ff,{}'.format(position)
+        self._body["command"] = "setPosition"
+        self._body["parameter"] = "0,ff,{}".format(position)
         result = self.command(self.deviceId, self._body)
         return result.text
 
@@ -29,4 +30,4 @@ class SwitchbotCurtain(SwitchbotDevice, OnOffAbility):
     def get_curtain_position(self):
         """Returns curtain position 0(open) to 100(close)"""
         status = self.get_status()
-        return status['slidePosition']
+        return status["slidePosition"]
