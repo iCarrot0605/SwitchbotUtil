@@ -90,10 +90,15 @@ class Switchbot:
         )
         scenes = json.loads(response.text)
 
-        with open("sceneList.txt", "w", encoding="utf-8", newline="\n") as f:
-            for scene in scenes["body"]:
-                f.write(scene["sceneId"] + ", ")
-                f.write(scene["sceneName"] + "\n")
+        if scenes["message"] != "success":
+            sys.exit(scenes["message"])
+        else:
+            with open(
+                "sceneList.txt", "w", encoding="utf-8", newline="\n"
+            ) as f:
+                for scene in scenes["body"]:
+                    f.write(scene["sceneId"] + ", ")
+                    f.write(scene["sceneName"] + "\n")
 
     def scene_execute(self, sceneId):
         """Execute scene"""
