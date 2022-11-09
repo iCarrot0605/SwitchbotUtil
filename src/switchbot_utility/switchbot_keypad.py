@@ -1,4 +1,7 @@
 from datetime import datetime as dt
+import json
+
+import requests
 
 from .switchbot_device import SwitchbotDevice
 
@@ -47,9 +50,6 @@ class SwitchbotKeypad(SwitchbotDevice):
 
     def key_list(self):
         """Get keypad key list to file"""
-        import json
-
-        import requests
 
         header = self.gen_sign()
         response = requests.get(

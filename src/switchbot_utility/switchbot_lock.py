@@ -3,6 +3,7 @@ from .switchbot_device import SwitchbotDevice
 
 class SwitchbotLock(SwitchbotDevice):
     """Switchbot Lock class"""
+
     def __init__(self, deviceId):
         """Constructor"""
         super().__init__(deviceId)
@@ -12,7 +13,7 @@ class SwitchbotLock(SwitchbotDevice):
         body = {
             "commandType": "command",
             "parameter": "default",
-            "command": "lock"
+            "command": "lock",
         }
         result = self.command(self.deviceId, body)
         return result.text
@@ -22,7 +23,7 @@ class SwitchbotLock(SwitchbotDevice):
         body = {
             "commandType": "command",
             "parameter": "default",
-            "command": "unlock"
+            "command": "unlock",
         }
         result = self.command(self.deviceId, body)
         return result.text
@@ -30,9 +31,9 @@ class SwitchbotLock(SwitchbotDevice):
     def get_lock_state(self):
         """Returns if locked or not"""
         status = self.get_status()
-        return status['lockState']
+        return status["lockState"]
 
     def get_door_state(self):
         """Returns if closed or not"""
         status = self.get_status()
-        return status['doorState']
+        return status["doorState"]

@@ -3,6 +3,7 @@ from .switchbot_device import SwitchbotDevice
 
 class SwitchbotMotionSensor(SwitchbotDevice):
     """Switchbot Motion Sensor class"""
+
     def __init__(self, deviceId):
         """Constructor"""
         super().__init__(deviceId)
@@ -10,9 +11,9 @@ class SwitchbotMotionSensor(SwitchbotDevice):
     def get_move_detected(self):
         """Returns if move detected"""
         status = self.get_status()
-        return status['moveDetected']
+        return status["moveDetected"]
 
     def get_brightness(self):
         """Returns ambient brightness picked up by the sensor"""
         status = self.get_status()
-        return status['brightness']
+        return status["brightness"]

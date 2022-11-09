@@ -9,12 +9,12 @@ class IrLight(SwitchbotIrDevice):
 
     def brightness_up(self):
         """Brightness up"""
-        self._body['command'] = 'brightnessUp'
+        self._body["command"] = "brightnessUp"
         result = self.command(self.deviceId, self._body)
         return result.text
 
     def brightness_down(self):
         """Brightness down"""
-        self._body['command'] = 'brightnessDown'
+        self._body["command"] = "brightnessDown"
         result = self.command(self.deviceId, self._body)
         return result.text
