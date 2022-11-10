@@ -17,12 +17,12 @@ class SwitchbotKeypad(SwitchbotDevice):
         """Convert datetime string to unixtime"""
         return int(dt.timestamp(dt.strptime(datetime, "%Y/%m/%d %H:%M:%S")))
 
-    def create_key(self, name, type, password, start_time, end_time):
-        """Create a new passcode
+    def create_key_limited(self, name, type, password, start_time, end_time):
+        """Create a new passcode(timiLimit or disposable)
 
         args:
             name: passcode name
-            type: type of passcode permanent, timeLimit, disposable, or urgent
+            type: type of passcode timeLimit or disposable
             password: a 6 to 12-digit passcode in plain text
             start_time: start time like 2000/12/31 23:59:15
             end_time: end time like start_time"""
@@ -32,6 +32,24 @@ class SwitchbotKeypad(SwitchbotDevice):
         parameter["password"] = password
         parameter["startTime"] = self._convert_datetime(start_time)
         parameter["endTime"] = self._convert_datetime(end_time)
+
+        body = {"commandType": "command", "command": "createKey"}
+        body["parameter"] = parameter
+
+        result = self.command(self.deviceId, body)
+        return result.text
+
+    def create_key(self, name, type, password):
+        """Create a new passcode(permanent or urgent)
+
+        args:
+            name: passcode name
+            type: type of passcode permanent or urgent
+            password: a 6 to 12-digit passcode in plain text"""
+        parameter = {}
+        parameter["name"] = name
+        parameter["type"] = type
+        parameter["password"] = password
 
         body = {"commandType": "command", "command": "createKey"}
         body["parameter"] = parameter
