@@ -2,6 +2,7 @@ import base64
 import hashlib
 import hmac
 import json
+import sys
 import time
 import uuid
 
@@ -17,13 +18,16 @@ class Switchbot:
 
     def read_token(self):
         """Import access token and secret from settings.json"""
-        with open("settings.json", "r") as f:
-            settings = json.load(f)
-
-        token = settings["token"]
-        secret = settings["secret"]
-
-        return token, secret
+        try:
+            with open("settings.json", "r") as f:
+                settings = json.load(f)
+            token = settings["token"]
+            secret = settings["secret"]
+            return token, secret
+        except FileNotFoundError:
+            sys.exit("settings.json file does not exist")
+        except KeyError:
+            sys.exit("settings.json file is invarid")
 
     def gen_sign(self):
         """Generate Switchbot API v1.1 sign header
@@ -63,17 +67,20 @@ class Switchbot:
         devices = json.loads(response.text)
 
         with open("deviceList.txt", "w", encoding="utf-8", newline="\n") as f:
-            for device in devices["body"]["deviceList"]:
-                f.write(device["deviceId"] + ", ")
-                f.write(device["deviceName"] + ", ")
-                f.write(device["deviceType"] + ", ")
-                f.write(device["hubDeviceId"] + "\n")
+            try:
+                for device in devices["body"]["deviceList"]:
+                    f.write(device["deviceId"] + ", ")
+                    f.write(device["deviceName"] + ", ")
+                    f.write(device["deviceType"] + ", ")
+                    f.write(device["hubDeviceId"] + "\n")
 
-            for device in devices["body"]["infraredRemoteList"]:
-                f.write(device["deviceId"] + ", ")
-                f.write(device["deviceName"] + ", ")
-                f.write(device["remoteType"] + ", ")
-                f.write(device["hubDeviceId"] + "\n")
+                for device in devices["body"]["infraredRemoteList"]:
+                    f.write(device["deviceId"] + ", ")
+                    f.write(device["deviceName"] + ", ")
+                    f.write(device["remoteType"] + ", ")
+                    f.write(device["hubDeviceId"] + "\n")
+            except KeyError:
+                sys.exit("Something wrong")
 
     def get_scene_list(self):
         """Get scene List as sceneList.txt"""
@@ -83,10 +90,15 @@ class Switchbot:
         )
         scenes = json.loads(response.text)
 
-        with open("sceneList.txt", "w", encoding="utf-8", newline="\n") as f:
-            for scene in scenes["body"]:
-                f.write(scene["sceneId"] + ", ")
-                f.write(scene["sceneName"] + "\n")
+        if scenes["message"] != "success":
+            sys.exit(scenes["message"])
+        else:
+            with open(
+                "sceneList.txt", "w", encoding="utf-8", newline="\n"
+            ) as f:
+                for scene in scenes["body"]:
+                    f.write(scene["sceneId"] + ", ")
+                    f.write(scene["sceneName"] + "\n")
 
     def scene_execute(self, sceneId):
         """Execute scene"""

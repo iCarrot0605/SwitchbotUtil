@@ -1,4 +1,5 @@
 import json
+import sys
 
 import requests
 
@@ -23,7 +24,10 @@ class SwitchbotDevice(Switchbot):
             headers=header,
         )
         status = json.loads(response.text)
-        return status["body"]
+        if status["message"] != "success":
+            sys.exit(status["message"])
+        else:
+            return status["body"]
 
     def command(self, deviceId, body):
         """Send command"""
