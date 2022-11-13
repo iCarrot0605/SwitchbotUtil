@@ -2,6 +2,12 @@
 
 Python Switchbot Utilities using Switchbot API.
 
+## Installing
+
+```plain
+pip install switchbot-utility
+```
+
 ## Getting start
 
 Get token and secret,
@@ -33,12 +39,6 @@ switchbot.devicelist()
 ```
 
 Scripts makes `deviceList.txt`. You can manipulate device using diviceId in this file.
-
-## Installing
-
-```plain
-pip install switchbot-utility
-```
 
 ## Other Example
 
