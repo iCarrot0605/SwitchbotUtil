@@ -26,7 +26,10 @@ create `settings.json` file, and fill token and secret.
 Run example script.
 
 ```python
-python3 example/get_devicelist.py
+from switchbot_utility.switchbot import Switchbot
+
+switchbot = Switchbot()
+switchbot.devicelist()
 ```
 
 Scripts makes `deviceList.txt`. You can manipulate device using diviceId in this file.
@@ -37,7 +40,27 @@ Scripts makes `deviceList.txt`. You can manipulate device using diviceId in this
 pip install switchbot-utility
 ```
 
-## Commands
+## Other Example
+
+### Get temperature from SwitchbotMeter
+
+```python
+from switchbot_utility.switchbot_meter import SwitchbotMeter
+
+meter = SwitchbotMeter("meterDeviceId")
+print(meter.get_temperature())
+```
+
+### Unlock SwitchbotLock
+
+```python
+from switchbot_utility.switchbot_lock import SwitchbotLock
+
+lock = SwitchbotLock("lockDeviceId")
+lock.unlock()
+```
+
+## Commands reference
 
 [Read the document](https://icarrot0605.github.io/switchbot_utility_docs/)
 
