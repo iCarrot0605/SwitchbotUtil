@@ -133,3 +133,5 @@ settings.json
 deviceList.txt
 keypad_*_keyList.txt
 sceneList.txt
+
+src/switchbot_utility/_version.py
