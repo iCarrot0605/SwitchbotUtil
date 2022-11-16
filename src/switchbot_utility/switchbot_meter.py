@@ -14,6 +14,6 @@ class SwitchbotMeter(SwitchbotDevice):
         return status["temperature"]
 
     def get_humidity(self):
-        """Returns temperature from meter"""
+        """Returns humidity from meter"""
         status = self.get_status()
         return status["humidity"]

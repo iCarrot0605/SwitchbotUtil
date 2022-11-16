@@ -2,16 +2,16 @@ from .switchbot_device import SwitchbotDevice
 
 
 class IrOthers(SwitchbotDevice):
-    """IR viertual device others class"""
+    """IR virtual device others class"""
 
     def __init__(self, deviceId):
         super().__init__(deviceId)
 
     def customize(self, button_name: str):
-        """Execute customized command
+        """Execute customized button
 
-        button_name should be quoted.
-        e.g. "on", "off"
+        Args:
+            button_name (str):
         """
 
         body = {"commandType": "customize", "parameter": "default"}
