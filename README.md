@@ -1,3 +1,9 @@
+![PyPI -
+Downloads](https://img.shields.io/pypi/dm/switchbot-utility?style=plastic)
+![PyPI](https://img.shields.io/pypi/v/switchbot-utility?style=plastic)
+![PyPI -
+License](https://img.shields.io/pypi/l/switchbot-utility?style=plastic)
+
 # Switchbot_utility
 
 Python Switchbot Utilities using Switchbot API.
