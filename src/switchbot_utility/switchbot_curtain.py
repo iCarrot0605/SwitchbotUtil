@@ -1,4 +1,4 @@
-from .onoff_ability import OnOffAbility
+from .onoff_device import OnOffAbility
 
 
 class SwitchbotCurtain(OnOffAbility):

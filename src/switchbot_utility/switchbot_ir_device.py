@@ -1,7 +1,7 @@
-from .onoff_ability import OnOffAbility
+from .onoff_device import OnOffDevice
 
 
-class SwitchbotIrDevice(SwitchbotDevice, OnOffAbility):
+class SwitchbotIrDevice(OnOffDevice):
     """Switchbot virtual ir device"""
 
     def __init__(self, deviceId):

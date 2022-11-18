@@ -1,7 +1,7 @@
-from .onoff_ability import OnOffAbility
+from .onoff_device import OnOffDevice
 
 
-class SwitchbotBot(OnOffAbility):
+class SwitchbotBot(OnOffDevice):
     """Switchbot bot class"""
 
     def __init__(self, deviceId):
