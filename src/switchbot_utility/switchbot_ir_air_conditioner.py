@@ -7,7 +7,9 @@ class IrAirConditioner(SwitchbotIrDevice):
     def __init__(self, deviceId):
         super().__init__(deviceId)
 
-    def set_all(self, temperature, mode, fan_speed, power_state):
+    def set_all(
+        self, temperature: int, mode: int, fan_speed: int, power_state: str
+    ) -> str:
         """Set the unit of temperature is in celsius
 
         args:

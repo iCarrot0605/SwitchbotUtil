@@ -8,7 +8,7 @@ class SwitchbotPlug(OnOffDevice):
         """Constructor"""
         super().__init__(deviceId)
 
-    def get_power(self):
+    def get_power(self) -> str:
         """Returns device power status"""
         status = self.get_status()
         return status["power"]

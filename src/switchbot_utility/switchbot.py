@@ -16,7 +16,7 @@ class Switchbot:
         """Constructor"""
         pass
 
-    def read_token(self):
+    def read_token(self) -> tuple:
         """Import access token and secret from settings.json"""
         try:
             with open("settings.json", "r") as f:
@@ -29,7 +29,7 @@ class Switchbot:
         except KeyError:
             sys.exit("settings.json file is invarid")
 
-    def gen_sign(self):
+    def gen_sign(self) -> dict:
         """Generate Switchbot API v1.1 sign header
 
         Returns:
@@ -58,7 +58,7 @@ class Switchbot:
 
         return header
 
-    def devicelist(self):
+    def devicelist(self) -> None:
         """Create all Switchbot device list as deviceList.txt"""
         header = self.gen_sign()
         response = requests.get(
@@ -82,7 +82,7 @@ class Switchbot:
             except KeyError:
                 sys.exit("Something wrong")
 
-    def get_scene_list(self):
+    def get_scene_list(self) -> None:
         """Get scene List as sceneList.txt"""
         header = self.gen_sign()
         response = requests.get(
@@ -100,7 +100,7 @@ class Switchbot:
                     f.write(scene["sceneId"] + ", ")
                     f.write(scene["sceneName"] + "\n")
 
-    def scene_execute(self, sceneId):
+    def scene_execute(self, sceneId: str) -> str:
         """Execute scene"""
         header = self.gen_sign()
         url = "https://api.switch-bot.com/v1.1/scenes/" + sceneId + "/execute"

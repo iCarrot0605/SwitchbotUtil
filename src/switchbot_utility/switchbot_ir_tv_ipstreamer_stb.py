@@ -7,7 +7,7 @@ class IrTv(SwitchbotIrDevice):
     def __init__(self, deviceId):
         super().__init__(deviceId)
 
-    def set_channel(self, channel):
+    def set_channel(self, channel: int) -> str:
         """Next channel"""
         self._body["command"] = "SetChannel"
         parameter = f"{channel}"
@@ -15,25 +15,25 @@ class IrTv(SwitchbotIrDevice):
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def volume_add(self):
+    def volume_add(self) -> str:
         """Volume up"""
         self._body["command"] = "volumeAdd"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def volume_sub(self):
+    def volume_sub(self) -> str:
         """Volume down"""
         self._body["command"] = "volumeSub"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def channel_add(self):
+    def channel_add(self) -> str:
         """Next channel"""
         self._body["command"] = "channelAdd"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def channel_sub(self):
+    def channel_sub(self) -> str:
         """Previous channel"""
         self._body["command"] = "channelSub"
         result = self.command(self.deviceId, self._body)

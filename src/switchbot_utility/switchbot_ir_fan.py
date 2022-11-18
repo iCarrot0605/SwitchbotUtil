@@ -7,31 +7,31 @@ class IrFan(SwitchbotIrDevice):
     def __init__(self, deviceId):
         super().__init__(deviceId)
 
-    def swing(self):
+    def swing(self) -> str:
         """Swing"""
         self._body["command"] = "swing"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def timer(self):
+    def timer(self) -> str:
         """Set timer"""
         self._body["command"] = "timer"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def low_speed(self):
+    def low_speed(self) -> str:
         """set fan speed to low"""
         self._body["command"] = "lowSpeed"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def middle_speed(self):
+    def middle_speed(self) -> str:
         """set fan speed to middle"""
         self._body["command"] = "middleSpeed"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def high_speed(self):
+    def high_speed(self) -> str:
         """set fan speed to high"""
         self._body["command"] = "highSpeed"
         result = self.command(self.deviceId, self._body)
