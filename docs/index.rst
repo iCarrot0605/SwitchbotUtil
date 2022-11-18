@@ -1,5 +1,5 @@
 .. switchbot_utility documentation master file, created by
-   sphinx-quickstart on Thu Nov  3 22:36:24 2022.
+   sphinx-quickstart on Fri Nov 18 22:41:05 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 

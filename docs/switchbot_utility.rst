@@ -4,10 +4,10 @@ switchbot\_utility package
 Submodules
 ----------
 
-switchbot\_utility.onoff\_ability module
-----------------------------------------
+switchbot\_utility.onoff\_device module
+---------------------------------------
 
-.. automodule:: switchbot_utility.onoff_ability
+.. automodule:: switchbot_utility.onoff_device
    :members:
    :undoc-members:
    :show-inheritance:
@@ -120,6 +120,14 @@ switchbot\_utility.switchbot\_ir\_light module
 ----------------------------------------------
 
 .. automodule:: switchbot_utility.switchbot_ir_light
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+switchbot\_utility.switchbot\_ir\_others module
+-----------------------------------------------
+
+.. automodule:: switchbot_utility.switchbot_ir_others
    :members:
    :undoc-members:
    :show-inheritance:
