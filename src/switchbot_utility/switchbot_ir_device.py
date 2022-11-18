@@ -1,4 +1,3 @@
-from .switchbot_device import SwitchbotDevice
 from .onoff_ability import OnOffAbility
 
 

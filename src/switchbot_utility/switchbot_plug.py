@@ -1,8 +1,7 @@
-from .switchbot_device import SwitchbotDevice
 from .onoff_ability import OnOffAbility
 
 
-class SwitchbotPlug(SwitchbotDevice, OnOffAbility):
+class SwitchbotPlug(OnOffAbility):
     """Switchbot Plug class"""
 
     def __init__(self, deviceId):

@@ -1,8 +1,7 @@
-from .switchbot_device import SwitchbotDevice
 from .onoff_ability import OnOffAbility
 
 
-class SwitchbotStripLight(SwitchbotDevice, OnOffAbility):
+class SwitchbotStripLight(OnOffAbility):
     """Switchbot Strip Light class"""
 
     def __init__(self, deviceId):
