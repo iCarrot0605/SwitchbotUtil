@@ -16,7 +16,7 @@ class SwitchbotDevice(Switchbot):
         """Constructor"""
         self.deviceId = deviceId
 
-    def get_status(self):
+    def get_status(self) -> dict:
         """Get device information"""
         header = self.gen_sign()
         response = requests.get(
@@ -29,7 +29,7 @@ class SwitchbotDevice(Switchbot):
         else:
             return status["body"]
 
-    def command(self, deviceId, body):
+    def command(self, deviceId: str, body: dict):
         """Send command"""
         header = self.gen_sign()
         return requests.post(

@@ -4,11 +4,11 @@ from .onoff_device import OnOffDevice
 class SwitchbotHumidifier(OnOffDevice):
     """Switchbot Humicifier class"""
 
-    def __init__(self, deviceId):
+    def __init__(self, deviceId: str):
         """Constructor"""
         super().__init__(deviceId)
 
-    def set_mode(self, mode):
+    def set_mode(self, mode: int):
         """Set device mode"""
         self._body["command"] = "setMode"
         self._body["parameter"] = mode

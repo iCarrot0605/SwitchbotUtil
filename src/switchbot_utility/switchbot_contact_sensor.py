@@ -8,7 +8,7 @@ class SwitchbotContactSensor(SwitchbotMotionSensor):
         """Constructor"""
         super().__init__(deviceId)
 
-    def get_open_state(self):
+    def get_open_state(self) -> dict:
         """Returns the open state of the sensor"""
         status = self.get_status()
         return status["openState"]
