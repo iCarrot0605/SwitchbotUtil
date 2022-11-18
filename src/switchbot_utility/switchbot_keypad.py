@@ -13,11 +13,18 @@ class SwitchbotKeypad(SwitchbotDevice):
         """Constructor"""
         super().__init__(deviceId)
 
-    def _convert_datetime(self, datetime):
+    def _convert_datetime(self, datetime: str):
         """Convert datetime string to unixtime"""
         return int(dt.timestamp(dt.strptime(datetime, "%Y/%m/%d %H:%M:%S")))
 
-    def create_key_limited(self, name, type_, password, start_time, end_time):
+    def create_key_limited(
+        self,
+        name: str,
+        type_: str,
+        password: str,
+        start_time: str,
+        end_time: str,
+    ) -> str:
         """Create a new passcode(timiLimit or disposable)
 
         args:
@@ -39,7 +46,7 @@ class SwitchbotKeypad(SwitchbotDevice):
         result = self.command(self.deviceId, body)
         return result.text
 
-    def create_key(self, name, type_, password):
+    def create_key(self, name: str, type_: str, password: str) -> str:
         """Create a new passcode(permanent or urgent)
 
         args:
@@ -57,7 +64,7 @@ class SwitchbotKeypad(SwitchbotDevice):
         result = self.command(self.deviceId, body)
         return result.text
 
-    def delete_key(self, keyId):
+    def delete_key(self, keyId: str) -> str:
         body = {"commandType": "command", "command": "deleteKey"}
         parameter = {}
         parameter["id"] = keyId
@@ -66,7 +73,7 @@ class SwitchbotKeypad(SwitchbotDevice):
         result = self.command(self.deviceId, body)
         return result.text
 
-    def key_list(self):
+    def key_list(self) -> None:
         """Get keypad key list to file"""
 
         header = self.gen_sign()

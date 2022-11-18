@@ -8,25 +8,25 @@ class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice):
         """Constructor"""
         super().__init__(deviceId)
 
-    def start(self):
+    def start(self) -> str:
         """Start vacuuming"""
         self._body["command"] = "start"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def stop(self):
+    def stop(self) -> str:
         """Stop vacuuming"""
         self._body["command"] = "stop"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def dock(self):
+    def dock(self) -> str:
         """Return to charging dock"""
         self._body["command"] = "dock"
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def power_level(self, powerlevel):
+    def power_level(self, powerlevel: int) -> str:
         """Set suction power level
 
         arg: 0-3"""
@@ -35,17 +35,17 @@ class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice):
         result = self.command(self.deviceId, self._body)
         return result.text
 
-    def get_working_status(self):
+    def get_working_status(self) -> str:
         """Returns the working status of the device"""
         status = self.get_status()
         return status["workingStatus"]
 
-    def get_online_status(self):
+    def get_online_status(self) -> str:
         """Returns the connection status of the device"""
         status = self.get_status()
         return status["onlineStatus"]
 
-    def get_battery(self):
+    def get_battery(self) -> str:
         """Returns the current battery level"""
         status = self.get_status()
         return status["battery"]

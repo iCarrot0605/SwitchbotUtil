@@ -8,12 +8,12 @@ class SwitchbotMeter(SwitchbotDevice):
         """Constructor"""
         super().__init__(deviceId)
 
-    def get_temperature(self):
+    def get_temperature(self) -> str:
         """Returns temperature from meter"""
         status = self.get_status()
         return status["temperature"]
 
-    def get_humidity(self):
+    def get_humidity(self) -> str:
         """Returns humidity from meter"""
         status = self.get_status()
         return status["humidity"]

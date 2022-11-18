@@ -8,7 +8,7 @@ class SwitchbotLock(SwitchbotDevice):
         """Constructor"""
         super().__init__(deviceId)
 
-    def lock(self):
+    def lock(self) -> str:
         """Lock a lock"""
         body = {
             "commandType": "command",
@@ -18,7 +18,7 @@ class SwitchbotLock(SwitchbotDevice):
         result = self.command(self.deviceId, body)
         return result.text
 
-    def unlock(self):
+    def unlock(self) -> str:
         """Unlock a lock"""
         body = {
             "commandType": "command",
@@ -28,12 +28,12 @@ class SwitchbotLock(SwitchbotDevice):
         result = self.command(self.deviceId, body)
         return result.text
 
-    def get_lock_state(self):
+    def get_lock_state(self) -> str:
         """Returns if locked or not"""
         status = self.get_status()
         return status["lockState"]
 
-    def get_door_state(self):
+    def get_door_state(self) -> str:
         """Returns if closed or not"""
         status = self.get_status()
         return status["doorState"]

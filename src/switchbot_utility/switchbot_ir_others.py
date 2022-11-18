@@ -7,7 +7,7 @@ class IrOthers(SwitchbotDevice):
     def __init__(self, deviceId):
         super().__init__(deviceId)
 
-    def customize(self, button_name: str):
+    def customize(self, button_name: str) -> str:
         """Execute customized button
 
         Args:
