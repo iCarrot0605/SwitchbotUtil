@@ -2,7 +2,7 @@ from .switchbot_device import SwitchbotDevice
 
 
 class OnOffDevice(SwitchbotDevice):
-    """On/Off Ability to some Switchbot devices."""
+    """On/Off devices."""
 
     def __init__(self, deviceId):
         super().__init__(deviceId)
