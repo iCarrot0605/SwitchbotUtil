@@ -40,8 +40,8 @@ class IrTv(SwitchbotIrDevice):
         return result.text
 
 
-class IrIpTvStreamer(IrTv):
-    """IPTV/Streamer class"""
+class IrStreamer(IrTv):
+    """Streamer class"""
 
     def __init__(self, deviceId):
         super().__init__(deviceId)
