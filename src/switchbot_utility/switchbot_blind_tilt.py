@@ -13,7 +13,8 @@ class SwitchbotBlindTilt(OnOffDevice):
 
         Args:
             direction (str): up/down
-            position (int): 0~100 (0 means closed, 100 means open, it MUST be set to a multiple of 2.
+            position (int): 0~100 (0 means closed,
+            100 means open, it MUST be set to a multiple of 2.
 
         Returns:
             str: result
