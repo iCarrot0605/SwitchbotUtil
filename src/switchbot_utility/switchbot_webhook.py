@@ -50,8 +50,7 @@ class SwitchbotWebhook(Switchbot):
         header = self.gen_sign()
         body = {}
         body["action"] = "updateWebhook"
-        body["config"]= {"url": {},
-                         "enable": {}}
+        body["config"] = {"url": {}, "enable": {}}
         body["config"]["url"] = url
         body["config"]["enable"] = enable
         posturl = self._baseurl + "updateWebhook"
