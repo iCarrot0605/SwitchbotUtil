@@ -45,12 +45,16 @@ class SwitchbotWebhook(Switchbot):
         )
         return response.text
 
-    def update_webhook(self, url: str) -> str:
+    def update_webhook(self, url: str, enable: bool) -> str:
         """Update webhook url"""
         header = self.gen_sign()
-        body = {"action": "updateWebhook"}
-        body["urls"] = url
-        posturl = self._baseurl + "queryWebhook"
+        body = {}
+        body["action"] = "updateWebhook"
+        body["config"]= {"url": {},
+                         "enable": {}}
+        body["config"]["url"] = url
+        body["config"]["enable"] = enable
+        posturl = self._baseurl + "updateWebhook"
         response = requests.post(
             posturl, headers=header, data=json.dumps(body)
         )
