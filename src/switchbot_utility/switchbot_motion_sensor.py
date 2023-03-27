@@ -1,7 +1,8 @@
+from .battery_mixin import BatteryMixin
 from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotMotionSensor(SwitchbotDevice):
+class SwitchbotMotionSensor(SwitchbotDevice, BatteryMixin):
     """Switchbot Motion Sensor class"""
 
     def __init__(self, deviceId):
