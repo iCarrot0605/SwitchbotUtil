@@ -1,11 +1,5 @@
-from .switchbot_device import SwitchbotDevice
-
-
-class OnOffDevice(SwitchbotDevice):
+class OnOffMixin:
     """On/Off devices."""
-
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
 
     def turn_on(self) -> str:
         """Turn on device"""

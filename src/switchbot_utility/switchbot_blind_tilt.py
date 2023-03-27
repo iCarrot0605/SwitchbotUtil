@@ -1,7 +1,8 @@
-from .onoff_device import OnOffDevice
+from .onoff_mixin import OnOffMixin
+from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotBlindTilt(OnOffDevice):
+class SwitchbotBlindTilt(SwitchbotDevice, OnOffMixin):
     """Switchbot Blind Tilt class"""
 
     def __init(self, deviceId):

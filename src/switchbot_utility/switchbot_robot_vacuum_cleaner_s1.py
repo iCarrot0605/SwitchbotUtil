@@ -1,7 +1,8 @@
+from .battery_mixin import BatteryMixin
 from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice):
+class SwitchbotRobotVacuumCleanerS1(SwitchbotDevice, BatteryMixin):
     """Switchbot Robot Vacuum Cleaner S1 class"""
 
     def __init__(self, deviceId):

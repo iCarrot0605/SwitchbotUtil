@@ -1,7 +1,9 @@
-from .onoff_device import OnOffDevice
+from .battery_mixin import BatteryMixin
+from .onoff_mixin import OnOffMixin
+from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotBot(OnOffDevice):
+class SwitchbotBot(SwitchbotDevice, OnOffMixin, BatteryMixin):
     """Switchbot bot class"""
 
     def __init__(self, deviceId):

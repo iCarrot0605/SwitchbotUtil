@@ -1,7 +1,8 @@
+from .battery_mixin import BatteryMixin
 from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotMeter(SwitchbotDevice):
+class SwitchbotMeter(SwitchbotDevice, BatteryMixin):
     """Switchbot meter class"""
 
     def __init__(self, deviceId):

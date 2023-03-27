@@ -1,7 +1,9 @@
-from .onoff_device import OnOffDevice
+from .battery_mixin import BatteryMixin
+from .onoff_mixin import OnOffMixin
+from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotCurtain(OnOffDevice):
+class SwitchbotCurtain(SwitchbotDevice, OnOffMixin, BatteryMixin):
     """Switchbot Curtain class"""
 
     def __init(self, deviceId):

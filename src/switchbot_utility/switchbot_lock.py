@@ -1,7 +1,8 @@
+from .battery_mixin import BatteryMixin
 from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotLock(SwitchbotDevice):
+class SwitchbotLock(SwitchbotDevice, BatteryMixin):
     """Switchbot Lock class"""
 
     def __init__(self, deviceId):
