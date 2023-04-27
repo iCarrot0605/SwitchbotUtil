@@ -1,7 +1,8 @@
 from .onoff_mixin import OnOffMixin
+from .switchbot_device import SwitchbotDevice
 
 
-class SwitchbotIrDevice(OnOffMixin):
+class SwitchbotIrDevice(SwitchbotDevice, OnOffMixin):
     """Switchbot virtual ir device"""
 
     def __init__(self, deviceId):
