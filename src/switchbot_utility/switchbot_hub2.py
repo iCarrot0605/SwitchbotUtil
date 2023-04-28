@@ -21,4 +21,3 @@ class SwitchbotHub2(SwitchbotDevice):
         """Returns the level of illuminance of the ambience light, 1~20"""
         status = self.get_status()
         return status["lightLevel"]
-
