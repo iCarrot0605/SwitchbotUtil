@@ -4,9 +4,10 @@ import sys
 import requests
 
 from .switchbot import Switchbot
+from .command_mixin import CommandMixin
 
 
-class SwitchbotDevice(Switchbot):
+class SwitchbotDevice(Switchbot, CommandMixin):
     """Switchbot device class"""
 
     _body = {"commandType": "command", "parameter": "default"}
@@ -29,11 +30,3 @@ class SwitchbotDevice(Switchbot):
         else:
             return status["body"]
 
-    def command(self, deviceId: str, body: dict):
-        """Send command"""
-        header = self.gen_sign()
-        return requests.post(
-            self._baseurl + deviceId + "/commands",
-            headers=header,
-            data=json.dumps(body),
-        )
