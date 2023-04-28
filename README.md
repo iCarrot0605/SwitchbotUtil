@@ -70,13 +70,14 @@ lock.unlock()
 
 [Read the document](https://icarrot0605.github.io/switchbot_utility_docs/)
 
-## Supported divice
+## Supported device
 
 | Term                         | Description                                                  |Tested |
 | ---------------------------- | ------------------------------------------------------------ | ------ |
 | Hub                          | Generally referred to these devices, SwitchBot Hub Model No. SwitchBot Hub S1/SwitchBot Hub Mini Model No. W0202200/SwitchBot Hub Plus Model No. SwitchBot Hub S1 | No |
 | Hub Mini                     | Short for SwitchBot Hub Mini Model No. W0202200              | Yes |
 | Hub Plus                     | Short for SwitchBot Hub Plus Model No. SwitchBot Hub S1      | No |
+| Hub 2                     | Short for SwitchBot Hub 2 Model No. W3202100      | Yes |
 | Bot                          | Short for SwitchBot Bot Model No. SwitchBot S1               | Yes |
 | Curtain                      | Short for SwitchBot Curtain Model No. W0701600               | Yes |
 | Plug                         | Short for SwitchBot Plug Model No. SP11. Currently only available in Japan | Yes |
