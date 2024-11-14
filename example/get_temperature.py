@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_meter import SwitchbotMeter
+import switchbot_utility as sbu
 
-meter = SwitchbotMeter("meterDeviceId")
+meter = sbu.SwitchbotMeter("meterDeviceId")
 print(meter.get_temperature())

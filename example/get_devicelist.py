@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot import Switchbot
+import switchbot_utility as sbu
 
-switchbot = Switchbot()
+switchbot = sbu.Switchbot()
 switchbot.devicelist()

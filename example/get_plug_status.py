@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_plug import SwitchbotPlug
+import switchbot_utility as sbu
 
-plug = SwitchbotPlug("PlugDeviceId")
+plug = sbu.SwitchbotPlug("PlugDeviceId")
 print(plug.get_power())

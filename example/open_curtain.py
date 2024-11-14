@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_curtain import SwitchbotCurtain
+import switchbot_utility as sbu
 
-curtain = SwitchbotCurtain("curtainDeviceId")
+curtain = sbu.SwitchbotCurtain("curtainDeviceId")
 curtain.open()

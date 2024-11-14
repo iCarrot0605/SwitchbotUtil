@@ -3,8 +3,8 @@ import sys
 
 import requests
 
-from .switchbot import Switchbot
-from .command_mixin import CommandMixin
+from switchbot import Switchbot
+from command_mixin import CommandMixin
 
 
 class SwitchbotDevice(Switchbot, CommandMixin):
