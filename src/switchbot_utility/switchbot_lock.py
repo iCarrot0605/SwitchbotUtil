@@ -1,5 +1,5 @@
-from .battery_mixin import BatteryMixin
-from .switchbot_device import SwitchbotDevice
+from battery_mixin import BatteryMixin
+from switchbot_device import SwitchbotDevice
 
 
 class SwitchbotLock(SwitchbotDevice, BatteryMixin):
