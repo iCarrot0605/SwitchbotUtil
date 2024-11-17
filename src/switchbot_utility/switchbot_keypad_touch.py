@@ -1,4 +1,4 @@
-from .switchbot_keypad import SwitchbotKeypad
+from switchbot_keypad import SwitchbotKeypad
 
 
 class SwitchbotKeypadTouch(SwitchbotKeypad):

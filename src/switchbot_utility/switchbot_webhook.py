@@ -2,7 +2,7 @@ import json
 
 import requests
 
-from .switchbot import Switchbot
+from switchbot import Switchbot
 
 
 class SwitchbotWebhook(Switchbot):
@@ -13,13 +13,18 @@ class SwitchbotWebhook(Switchbot):
 
     """Switchbot Webhook action"""
 
+    def http_request(self, url: str, headers: dict, data: dict):
+        return = requests.post(
+            url, headers, data,
+        )
+
     def setup_webhook(self, url: str) -> str:
         """Setup Webhook"""
         header = self.gen_sign()
         body = {"action": "setupWebhook", "deviceList": "ALL"}
         body["url"] = url
         posturl = self._baseurl + "setupWebhook"
-        response = requests.post(
+        response = http_request(
             posturl, headers=header, data=json.dumps(body)
         )
         return response.text
@@ -29,7 +34,7 @@ class SwitchbotWebhook(Switchbot):
         header = self.gen_sign()
         body = {"action": "queryUrl"}
         posturl = self._baseurl + "queryWebhook"
-        response = requests.post(
+        response = http_request(
             posturl, headers=header, data=json.dumps(body)
         )
         return response.text
@@ -40,7 +45,7 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "queryDetails"}
         body["urls"] = url
         posturl = self._baseurl + "queryWebhook"
-        response = requests.post(
+        response = http_request(
             posturl, headers=header, data=json.dumps(body)
         )
         return response.text
@@ -54,7 +59,7 @@ class SwitchbotWebhook(Switchbot):
         body["config"]["url"] = url
         body["config"]["enable"] = enable
         posturl = self._baseurl + "updateWebhook"
-        response = requests.post(
+        response = http_request(
             posturl, headers=header, data=json.dumps(body)
         )
         return response.text
@@ -65,7 +70,7 @@ class SwitchbotWebhook(Switchbot):
         body = {"action": "deleteWebhook"}
         body["url"] = url
         posturl = self._baseurl + "deleteWebhook"
-        response = requests.post(
+        response = http_request(
             posturl, headers=header, data=json.dumps(body)
         )
         return response.text

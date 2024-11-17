@@ -1,6 +1,6 @@
-from switchbot_utility.switchbot_keypad import SwitchbotKeypad
+import switchbot_utility as sbu
 
-keypad = SwitchbotKeypad("KeypadDeviceId")
+keypad = sbu.SwitchbotKeypad("KeypadDeviceId")
 print(
     keypad.create_key_limited(
         name="Test code",

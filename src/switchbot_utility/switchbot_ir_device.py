@@ -1,6 +1,6 @@
-from .command_mixin import CommandMixin
-from .onoff_mixin import OnOffMixin
-from .switchbot import Switchbot
+from command_mixin import CommandMixin
+from onoff_mixin import OnOffMixin
+from switchbot import Switchbot
 
 
 class SwitchbotIrDevice(Switchbot, OnOffMixin, CommandMixin):

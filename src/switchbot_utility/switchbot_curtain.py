@@ -1,6 +1,6 @@
-from .battery_mixin import BatteryMixin
-from .onoff_mixin import OnOffMixin
-from .switchbot_device import SwitchbotDevice
+from battery_mixin import BatteryMixin
+from onoff_mixin import OnOffMixin
+from switchbot_device import SwitchbotDevice
 
 
 class SwitchbotCurtain(SwitchbotDevice, OnOffMixin, BatteryMixin):
