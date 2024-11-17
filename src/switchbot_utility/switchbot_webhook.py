@@ -14,7 +14,7 @@ class SwitchbotWebhook(Switchbot):
     """Switchbot Webhook action"""
 
     def http_request(self, url: str, headers: dict, data: dict):
-        return = requests.post(
+        return requests.post(
             url, headers, data,
         )
 
