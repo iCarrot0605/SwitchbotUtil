@@ -1,5 +1,5 @@
-from switchbot_utility.battery_mixin import BatteryMixin
-from switchbot_utility.switchbot_device import SwitchbotDevice
+from battery_mixin import BatteryMixin
+from switchbot_device import SwitchbotDevice
 
 
 class SwitchbotMeter(SwitchbotDevice, BatteryMixin):

@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_plug_mini_us import SwitchbotPlugMiniUS
+from switchbot_plug_mini_us import SwitchbotPlugMiniUS
 
 
 class SwitchbotPlugMiniJP(SwitchbotPlugMiniUS):

@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_color_bulb import SwitchbotColorBulb
+from switchbot_color_bulb import SwitchbotColorBulb
 
 
 class SwitchbotCeilingLight(SwitchbotColorBulb):

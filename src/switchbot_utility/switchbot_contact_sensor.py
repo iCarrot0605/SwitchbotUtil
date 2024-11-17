@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_motion_sensor import SwitchbotMotionSensor
+from switchbot_motion_sensor import SwitchbotMotionSensor
 
 
 class SwitchbotContactSensor(SwitchbotMotionSensor):

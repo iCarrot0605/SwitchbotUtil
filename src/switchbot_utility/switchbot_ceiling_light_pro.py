@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_ceiling_light import SwitchbotCeilingLight
+from switchbot_ceiling_light import SwitchbotCeilingLight
 
 
 class SwithbotCeilingLightPro(SwitchbotCeilingLight):

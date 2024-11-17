@@ -2,7 +2,7 @@ import json
 
 import requests
 
-from switchbot_utility.switchbot import Switchbot
+from switchbot import Switchbot
 
 
 class SwitchbotWebhook(Switchbot):

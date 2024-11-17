@@ -1,4 +1,4 @@
-from switchbot_utility.switchbot_strip_light import SwitchbotStripLight
+from switchbot_strip_light import SwitchbotStripLight
 
 
 class SwitchbotColorBulb(SwitchbotStripLight):

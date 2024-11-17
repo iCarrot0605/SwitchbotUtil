@@ -3,7 +3,7 @@ from datetime import datetime as dt
 
 import requests
 
-from switchbot_utility.switchbot_device import SwitchbotDevice
+from switchbot_device import SwitchbotDevice
 
 
 class SwitchbotKeypad(SwitchbotDevice):
