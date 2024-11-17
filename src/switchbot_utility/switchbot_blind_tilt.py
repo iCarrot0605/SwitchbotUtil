@@ -1,5 +1,5 @@
-from onoff_mixin import OnOffMixin
-from switchbot_device import SwitchbotDevice
+from switchbot_utility.onoff_mixin import OnOffMixin
+from switchbot_utility.switchbot_device import SwitchbotDevice
 
 
 class SwitchbotBlindTilt(SwitchbotDevice, OnOffMixin):

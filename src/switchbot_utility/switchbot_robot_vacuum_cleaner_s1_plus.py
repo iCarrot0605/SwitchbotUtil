@@ -1,4 +1,4 @@
-from switchbot_robot_vacuum_cleaner_s1 import SwitchbotRobotVacuumCleanerS1
+from switchbot_utility.switchbot_robot_vacuum_cleaner_s1 import SwitchbotRobotVacuumCleanerS1
 
 
 class SwitchbotRobotVacuumCleanerS1Plus(SwitchbotRobotVacuumCleanerS1):
