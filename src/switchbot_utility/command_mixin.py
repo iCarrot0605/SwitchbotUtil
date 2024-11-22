@@ -1,6 +1,8 @@
 import json
+import sys
 
 import requests
+from requests.exceptions import Timeout
 
 
 class CommandMixin:
@@ -11,8 +13,12 @@ class CommandMixin:
         """Send command"""
 
         header = self.gen_sign()
-        return requests.post(
-            self._baseurl + deviceId + "/commands",
-            headers=header,
-            data=json.dumps(body),
-        )
+        try:
+            return requests.post(
+                self._baseurl + deviceId + "/commands",
+                headers=header,
+                data=json.dumps(body),
+                timeout=(3.0, 7.5)
+            )
+        except Timeout:
+            sys.exit("Timeout")

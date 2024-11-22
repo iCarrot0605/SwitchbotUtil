@@ -4,9 +4,6 @@ from switchbot_utility.switchbot_ir_device import SwitchbotIrDevice
 class IrFan(SwitchbotIrDevice):
     """Switchbot virtual IR fan"""
 
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
-
     def swing(self) -> str:
         """Swing"""
         self._body["command"] = "swing"

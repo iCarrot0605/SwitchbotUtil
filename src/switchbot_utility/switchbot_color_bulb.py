@@ -2,10 +2,7 @@ from switchbot_utility.switchbot_strip_light import SwitchbotStripLight
 
 
 class SwitchbotColorBulb(SwitchbotStripLight):
-    """Constructor"""
-
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
+    """Switchbot Color Bulb class"""
 
     def set_color_temperature(self, temperature: int) -> str:
         """Set color temperature"""

@@ -7,6 +7,7 @@ import time
 import uuid
 
 import requests
+from requests.exceptions import Timeout
 
 
 class Switchbot:
@@ -14,12 +15,11 @@ class Switchbot:
 
     def __init__(self):
         """Constructor"""
-        pass
 
     def read_token(self) -> tuple:
         """Import access token and secret from settings.json"""
         try:
-            with open("settings.json", "r") as f:
+            with open("settings.json", "r", encoding="utf8") as f:
                 settings = json.load(f)
             token = settings["token"]
             secret = settings["secret"]
@@ -61,33 +61,64 @@ class Switchbot:
     def devicelist(self) -> None:
         """Create all Switchbot device list as deviceList.txt"""
         header = self.gen_sign()
-        response = requests.get(
-            "https://api.switch-bot.com/v1.1/devices", headers=header
-        )
+        try:
+            response = requests.get(
+                "https://api.switch-bot.com/v1.1/devices", headers=header,
+                timeout=(3.0, 7.5)
+            )
+        except Timeout:
+            sys.exit("Timeout")
+
         devices = json.loads(response.text)
 
         with open("deviceList.txt", "w", encoding="utf-8", newline="\n") as f:
-            try:
-                for device in devices["body"]["deviceList"]:
+            for device in devices["body"]["deviceList"]:
+                try:
                     f.write(device["deviceId"] + ", ")
+                except KeyError:
+                    f.write(", ")
+                try:
                     f.write(device["deviceName"] + ", ")
+                except KeyError:
+                    f.write(", ")
+                try:
                     f.write(device["deviceType"] + ", ")
+                except KeyError:
+                    f.write(", ")
+                try:
                     f.write(device["hubDeviceId"] + "\n")
+                except KeyError:
+                    f.write("\n")
 
-                for device in devices["body"]["infraredRemoteList"]:
+            for device in devices["body"]["infraredRemoteList"]:
+                try:
                     f.write(device["deviceId"] + ", ")
+                except KeyError:
+                    f.write(", ")
+                try:
                     f.write(device["deviceName"] + ", ")
+                except KeyError:
+                    f.write(", ")
+                try:
                     f.write(device["remoteType"] + ", ")
+                except KeyError:
+                    f.write(", ")
+                try:
                     f.write(device["hubDeviceId"] + "\n")
-            except KeyError:
-                sys.exit("Something wrong")
+                except KeyError:
+                    f.write("\n")
 
     def get_scene_list(self) -> None:
         """Get scene List as sceneList.txt"""
         header = self.gen_sign()
-        response = requests.get(
-            "https://api.switch-bot.com/v1.1/scenes", headers=header
-        )
+        try:
+            response = requests.get(
+                "https://api.switch-bot.com/v1.1/scenes", headers=header,
+                timeout=(3.0, 7.5),
+            )
+        except Timeout:
+            sys.exit("Timeout")
+
         scenes = json.loads(response.text)
 
         if scenes["message"] != "success":
@@ -104,5 +135,10 @@ class Switchbot:
         """Execute scene"""
         header = self.gen_sign()
         url = "https://api.switch-bot.com/v1.1/scenes/" + sceneId + "/execute"
-        response = requests.post(url=url, headers=header)
+        try:
+            response = requests.post(url=url, headers=header,
+                                     timeout=(3.0, 7.5))
+        except Timeout:
+            sys.exit("Timeout")
+
         return response.text

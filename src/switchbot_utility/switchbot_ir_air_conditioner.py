@@ -4,9 +4,6 @@ from switchbot_utility.switchbot_ir_device import SwitchbotIrDevice
 class IrAirConditioner(SwitchbotIrDevice):
     """Switchbot virtual ir Air Conditioner"""
 
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
-
     def set_all(
         self, temperature: int, mode: int, fan_speed: int, power_state: str
     ) -> str:

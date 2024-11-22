@@ -6,10 +6,6 @@ from switchbot_utility.switchbot_device import SwitchbotDevice
 class SwitchbotCurtain(SwitchbotDevice, OnOffMixin, BatteryMixin):
     """Switchbot Curtain class"""
 
-    def __init(self, deviceId):
-        """Constructor"""
-        super().__init__(deviceId)
-
     def set_position(self, position: int) -> str:
         """Set curtain position 0-100%
 

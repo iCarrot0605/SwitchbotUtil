@@ -5,10 +5,6 @@ from switchbot_utility.switchbot_device import SwitchbotDevice
 class SwitchbotHumidifier(SwitchbotDevice, OnOffMixin):
     """Switchbot Humicifier class"""
 
-    def __init__(self, deviceId: str):
-        """Constructor"""
-        super().__init__(deviceId)
-
     def set_mode(self, mode: int):
         """Set device mode"""
         self._body["command"] = "setMode"

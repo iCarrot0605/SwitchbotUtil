@@ -4,9 +4,6 @@ from switchbot_utility.switchbot_ir_device import SwitchbotIrDevice
 class IrDvd(SwitchbotIrDevice):
     """Switchbot virtual ir Tv"""
 
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
-
     def set_mute(self) -> str:
         """Mute/unmute"""
         self._body["command"] = "setMute"

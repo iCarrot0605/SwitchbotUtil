@@ -5,10 +5,6 @@ from switchbot_utility.switchbot_device import SwitchbotDevice
 class SwitchbotLock(SwitchbotDevice, BatteryMixin):
     """Switchbot Lock class"""
 
-    def __init__(self, deviceId):
-        """Constructor"""
-        super().__init__(deviceId)
-
     def lock(self) -> str:
         """Lock a lock"""
         body = {
