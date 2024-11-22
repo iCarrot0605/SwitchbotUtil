@@ -4,10 +4,6 @@ from switchbot_utility.switchbot_plug import SwitchbotPlug
 class SwitchbotPlugMiniUS(SwitchbotPlug):
     """Switchbot Plug Mini(US) class"""
 
-    def __init__(self, deviceId):
-        """Constructor"""
-        super().__init__(deviceId)
-
     def toggle(self) -> str:
         """Toggle plug state"""
         self._body["command"] = "toggle"

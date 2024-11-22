@@ -4,13 +4,8 @@ from switchbot_utility.switchbot_color_bulb import SwitchbotColorBulb
 class SwitchbotCeilingLight(SwitchbotColorBulb):
     """Switchbot Ceiling Light class"""
 
-    def __init__(self, deviceId):
-        """Constructor"""
-        super().__init__(deviceId)
-
     def set_color(self, r, g, b):
         """Do nothing"""
-        pass
 
     def get_power(self):
         """Returns ON/OFF state"""

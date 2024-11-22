@@ -1,7 +1,9 @@
 import json
+import sys
 from datetime import datetime as dt
 
 import requests
+from requests.exceptions import Timeout
 
 from switchbot_utility.switchbot_device import SwitchbotDevice
 
@@ -77,9 +79,14 @@ class SwitchbotKeypad(SwitchbotDevice):
         """Get keypad key list to file"""
 
         header = self.gen_sign()
-        response = requests.get(
-            "https://api.switch-bot.com/v1.1/devices", headers=header
-        )
+        try:
+            response = requests.get(
+                "https://api.switch-bot.com/v1.1/devices", headers=header,
+                timeout=(3.0, 7.5),
+            )
+        except Timeout:
+            sys.exit("Timeout")
+
         devices = json.loads(response.text)
 
         key_list = [

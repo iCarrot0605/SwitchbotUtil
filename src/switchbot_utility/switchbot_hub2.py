@@ -4,9 +4,6 @@ from switchbot_utility.switchbot_device import SwitchbotDevice
 class SwitchbotHub2(SwitchbotDevice):
     """Switchbot Hub2 class"""
 
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
-
     def get_temperature(self) -> str:
         """Returns temperature from Hub2"""
         status = self.get_status()

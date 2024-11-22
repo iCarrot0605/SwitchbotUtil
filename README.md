@@ -38,9 +38,9 @@ create `settings.json` file, and fill token and secret.
 Run example script.
 
 ```python
-from switchbot_utility.switchbot import Switchbot
+import switchbot_utility.switchbot as sbu
 
-switchbot = Switchbot()
+switchbot = sbu.Switchbot()
 switchbot.devicelist()
 ```
 
@@ -51,18 +51,18 @@ Scripts makes `deviceList.txt`. You can manipulate device using diviceId in this
 ### Get temperature from SwitchbotMeter
 
 ```python
-from switchbot_utility.switchbot_meter import SwitchbotMeter
+import switchbot_utility as sbu
 
-meter = SwitchbotMeter("meterDeviceId")
+meter = sbu.SwitchbotMeter("meterDeviceId")
 print(meter.get_temperature())
 ```
 
 ### Unlock SwitchbotLock
 
 ```python
-from switchbot_utility.switchbot_lock import SwitchbotLock
+import switchbot_utility as sbu
 
-lock = SwitchbotLock("lockDeviceId")
+lock = sbu.SwitchbotLock("lockDeviceId")
 lock.unlock()
 ```
 

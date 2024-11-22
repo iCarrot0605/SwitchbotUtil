@@ -4,9 +4,6 @@ from switchbot_utility.switchbot_device import SwitchbotDevice
 class IrOthers(SwitchbotDevice):
     """IR virtual device others class"""
 
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
-
     def customize(self, button_name: str) -> str:
         """Execute customized button
 

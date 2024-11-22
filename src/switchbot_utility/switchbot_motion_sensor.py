@@ -5,10 +5,6 @@ from switchbot_utility.switchbot_device import SwitchbotDevice
 class SwitchbotMotionSensor(SwitchbotDevice, BatteryMixin):
     """Switchbot Motion Sensor class"""
 
-    def __init__(self, deviceId):
-        """Constructor"""
-        super().__init__(deviceId)
-
     def get_move_detected(self) -> str:
         """Returns if move detected"""
         status = self.get_status()

@@ -5,10 +5,6 @@ from switchbot_utility.switchbot_device import SwitchbotDevice
 class SwitchbotBlindTilt(SwitchbotDevice, OnOffMixin):
     """Switchbot Blind Tilt class"""
 
-    def __init(self, deviceId):
-        """Constructor"""
-        super().__init__(deviceId)
-
     def set_position(self, direction: str, position: int) -> str:
         """Set blind position.
 

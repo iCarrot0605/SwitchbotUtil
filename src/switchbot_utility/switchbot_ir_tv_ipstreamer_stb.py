@@ -4,9 +4,6 @@ from switchbot_utility.switchbot_ir_device import SwitchbotIrDevice
 class IrTv(SwitchbotIrDevice):
     """Switchbot virtual ir Tv"""
 
-    def __init__(self, deviceId):
-        super().__init__(deviceId)
-
     def set_channel(self, channel: int) -> str:
         """Next channel"""
         self._body["command"] = "SetChannel"
