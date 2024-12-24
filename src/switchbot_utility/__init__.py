@@ -24,6 +24,7 @@ from switchbot_utility.switchbot_lock import SwitchbotLock
 from switchbot_utility.switchbot_meter import SwitchbotMeter
 from switchbot_utility.switchbot_meter_plus import SwitchbotMeterPlus
 from switchbot_utility.switchbot_motion_sensor import SwitchbotMotionSensor
+from switchbot_utility.switchbot_outdoor_meter import SwitchbotOutdoorMeter
 from switchbot_utility.switchbot_plug import SwitchbotPlug
 from switchbot_utility.switchbot_plug_mini_jp import SwitchbotPlugMiniJP
 from switchbot_utility.switchbot_plug_mini_us import SwitchbotPlugMiniUS

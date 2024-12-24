@@ -74,16 +74,17 @@ lock.unlock()
 
 | Term                         | Description                                                  | Model No.    |Tested|
 | ---------------------------- | ------------------------------------------------------------ | ------------ |------|
-| Hub Mini                     | Short for SwitchBot Hub Mini                                 | W0202200 | Yes |
+| Hub Mini                     | Short for SwitchBot Hub Mini                                 | W0202200     | Yes |
 | Hub Plus                     | Short for SwitchBot Hub Plus                                 | SwitchBot Hub S1| No |
-| Hub 2                     | Short for SwitchBot Hub 2 | W3202100      | Yes |
-| Bot                          | Short for SwitchBot Bot | SwitchBot S1               | Yes |
-| Curtain                      | Short for SwitchBot Curtain | W0701600               | Yes |
-| Curtain 3                    | Short for SwitchBot Curtain 3 |W2400000              | No |
-| Plug                         | Short for SwitchBot Plug | SP11. | Yes |
+| Hub 2                        | Short for SwitchBot Hub 2                                    | W3202100     | Yes |
+| Bot                          | Short for SwitchBot Bot                                      | SwitchBot S1 | Yes |
+| Curtain                      | Short for SwitchBot Curtain                                  | W0701600     | Yes |
+| Curtain 3                    | Short for SwitchBot Curtain 3                                | W2400000     | No |
+| Plug                         | Short for SwitchBot Plug                                     | SP11         | Yes |
 | Meter                        | Short for SwitchBot Thermometer and Hygrometer | SwitchBot MeterTH S1 | Yes |
 | Meter Plus (JP)              | Short for SwitchBot Thermometer and Hygrometer Plus (JP) | W2201500 | Yes |
 | Meter Plus (US)              | Short for SwitchBot Thermometer and Hygrometer Plus (US) | W2301500 | No |
+| Outdoor Meter                | Short for Indoor/Outdoor Thermo-Hygrometer                   | W3400010     | Yes |
 | Motion Sensor                | Short for SwitchBot Motion Sensor | W1101500         | No |
 | Contact Sensor               | Short for SwitchBot Contact Sensor | W1201500        | Yes |
 | Color Bulb                   | Short for SwitchBot Color Bulb | W1401400            | Yes |
