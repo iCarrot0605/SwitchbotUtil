@@ -24,7 +24,7 @@ from switchbot_utility.switchbot_lock import SwitchbotLock
 from switchbot_utility.switchbot_meter import SwitchbotMeter
 from switchbot_utility.switchbot_meter_plus import SwitchbotMeterPlus
 from switchbot_utility.switchbot_meter_pro import SwitchbotMeterPro
-from switchbot_utility.switchbot_meter_pro_co2 import SwitchbotMeterProCo2
+from switchbot_utility.switchbot_meter_pro_co2 import SwitchbotMeterProCO2
 from switchbot_utility.switchbot_mini_robot_vacuum_k10plus import \
     SwitchbotMiniRobotVacuumK10Plus
 from switchbot_utility.switchbot_mini_robot_vacuum_k10plus_pro import \
