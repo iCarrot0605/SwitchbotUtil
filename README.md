@@ -81,21 +81,25 @@ lock.unlock()
 | Curtain                      | Short for SwitchBot Curtain                                  | W0701600     | Yes |
 | Curtain 3                    | Short for SwitchBot Curtain 3                                | W2400000     | No |
 | Plug                         | Short for SwitchBot Plug                                     | SP11         | Yes |
-| Meter                        | Short for SwitchBot Thermometer and Hygrometer | SwitchBot MeterTH S1 | Yes |
-| Meter Plus (JP)              | Short for SwitchBot Thermometer and Hygrometer Plus (JP) | W2201500 | Yes |
-| Meter Plus (US)              | Short for SwitchBot Thermometer and Hygrometer Plus (US) | W2301500 | No |
+| Meter                        | Short for SwitchBot Thermometer and Hygrometer               | SwitchBot MeterTH S1 | Yes |
+| Meter Plus (JP)              | Short for SwitchBot Thermometer and Hygrometer Plus (JP)     | W2201500     | Yes |
+| Meter Plus (US)              | Short for SwitchBot Thermometer and Hygrometer Plus (US)     | W2301500     | No |
 | Outdoor Meter                | Short for Indoor/Outdoor Thermo-Hygrometer                   | W3400010     | Yes |
-| Motion Sensor                | Short for SwitchBot Motion Sensor | W1101500         | No |
-| Contact Sensor               | Short for SwitchBot Contact Sensor | W1201500        | Yes |
-| Color Bulb                   | Short for SwitchBot Color Bulb | W1401400            | Yes |
-| Strip Light                  | Short for SwitchBot LED Strip Light | W1701100       | No |
-| Plug Mini (US)               | Short for SwitchBot Plug Mini (US) | W1901400 and W1901401 | No |
-| Plug Mini (JP)               | Short for SwitchBot Plug Mini (JP) | W2001400 and W2001401 | Yes |
-| Lock                         | Short for SwitchBot Lock | W1601700                  | Yes |
-| Keypad                         | Short for SwitchBot Lock | W2500010                  | No |
-| Keypad Touch                         | Short for SwitchBot Lock | W2500020                  | Yes |
-| Robot Vacuum Cleaner S1      | Short for SwitchBot Robot Vacuum Cleaner S1 | W3011000  | No |
-| Robot Vacuum Cleaner S1 Plus | Short for SwitchBot Robot Vacuum Cleaner S1 Plus | W3011010 | No |
+| Meter Pro                    | Short for SwitchBot Meter Pro                                | W4900000     | No |
+| Meter Pro (CO2 Monitor)      | Short for SwitchBot Meter Pro (CO2 Monitor)                  | W4900010     | Yes |
+| Motion Sensor                | Short for SwitchBot Motion Sensor                            | W1101500     | No |
+| Contact Sensor               | Short for SwitchBot Contact Sensor                           | W1201500     | Yes |
+| Color Bulb                   | Short for SwitchBot Color Bulb                               | W1401400     | Yes |
+| Strip Light                  | Short for SwitchBot LED Strip Light                          | W1701100     | No |
+| Plug Mini (US)               | Short for SwitchBot Plug Mini (US)                           | W1901400 and W1901401 | No |
+| Plug Mini (JP)               | Short for SwitchBot Plug Mini (JP)                           | W2001400 and W2001401 | Yes |
+| Lock                         | Short for SwitchBot Lock                                     | W1601700     | Yes |
+| Keypad                       | Short for SwitchBot Keypad                                   | W2500010     | No |
+| Keypad Touch                 | Short for SwitchBot Keypad Touch                             | W2500020     | Yes |
+| S1                           | Short for SwitchBot Robot Vacuum Cleaner S1                  | W3011000     | No |
+| S1 Plus                      | Short for SwitchBot Robot Vacuum Cleaner S1 Plus             | W3011010     | No |
+| K10+                         | Short for SwitchBot Mini Robot Vacuum K10+                   | W3011020     | Yes |
+| K10+ Pro                     | Short for SwitchBot Mini Robot Vacuum K10+ Pro               | W3011026     | No |
 | Ceiling Light      | Short for SwitchBot Ceiling Light | W2612230 and W2612240 | No |
 | Ceiling Light Pro | Short for SwitchBot Ceiling Light Pro | W2612210 and W2612220 | No |
 | Indoor Cam | Short for SwitchBot Indoor Cam | W1301200                  | No |

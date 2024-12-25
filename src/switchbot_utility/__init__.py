@@ -23,6 +23,12 @@ from switchbot_utility.switchbot_keypad_touch import SwitchbotKeypadTouch
 from switchbot_utility.switchbot_lock import SwitchbotLock
 from switchbot_utility.switchbot_meter import SwitchbotMeter
 from switchbot_utility.switchbot_meter_plus import SwitchbotMeterPlus
+from switchbot_utility.switchbot_meter_pro import SwitchbotMeterPro
+from switchbot_utility.switchbot_meter_pro_co2 import SwitchbotMeterProCo2
+from switchbot_utility.switchbot_mini_robot_vacuum_k10plus import \
+    SwitchbotMiniRobotVacuumK10Plus
+from switchbot_utility.switchbot_mini_robot_vacuum_k10plus_pro import \
+    SwitchbotMiniRobotVacuumK10PlusPro
 from switchbot_utility.switchbot_motion_sensor import SwitchbotMotionSensor
 from switchbot_utility.switchbot_outdoor_meter import SwitchbotOutdoorMeter
 from switchbot_utility.switchbot_plug import SwitchbotPlug
